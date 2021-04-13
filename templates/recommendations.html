@@ -9,20 +9,23 @@
 </head>
 
 <body>
-    <div>
-        {% for recommendation in recommendations %}
 
-        {{ recommendation.category_name }}<br>
-        {{ recommendation.rec_name }}<br>
-        {{ recommendation.rec_by }}<br>
-        {{ recommendation.rec_description }}<br>
-        {{ recommendation.level }}<br>
-        {{ recommendation.rec_rating }}<br>
-        {{ recommendation.created_by }}<br>
-        {{ recommendation.time_created }}<br>
+    <h1>Surround Yourself with Spanish</h1>
+    <h2>Check out our recommendations</h2>
 
-        {% endfor %}
-    </div>
+    {% for recommendation in recommendations %}
+
+    {{ recommendation.category_name }}<br>
+    {{ recommendation.rec_name }}<br>
+    {{ recommendation.rec_by }}<br>
+    {{ recommendation.rec_description }}<br>
+    {{ recommendation.level }}<br>
+    {{ recommendation.rec_rating }}<br>
+    {{ recommendation.created_by }}<br>
+    {{ recommendation.time_created }}<br>
+
+    {% endfor %}
+
 </body>
 
 </html>
