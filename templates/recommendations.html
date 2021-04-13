@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surround Yourself with Spanish</title>
-</head>
+<h1>Surround Yourself with Spanish</h1>
+<h2>Check out our recommendations</h2>
 
-<body>
-
-    <h1>Surround Yourself with Spanish</h1>
-    <h2>Check out our recommendations</h2>
-
-    {% for recommendation in recommendations %}
+{% for recommendation in recommendations %}
 
     {{ recommendation.category_name }}<br>
     {{ recommendation.rec_name }}<br>
@@ -24,8 +15,6 @@
     {{ recommendation.created_by }}<br>
     {{ recommendation.time_created }}<br>
 
-    {% endfor %}
+{% endfor %}
 
-</body>
-
-</html>
+{% endblock %}
