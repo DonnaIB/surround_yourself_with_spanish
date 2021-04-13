@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surround Yourself with Spanish</title>
+</head>
+
+<body>
+    <div>
+        {% for recommendation in recommendations %}
+
+        {{ recommendation.category_name }}<br>
+        {{ recommendation.rec_name }}<br>
+        {{ recommendation.rec_by }}<br>
+        {{ recommendation.rec_description }}<br>
+        {{ recommendation.level }}<br>
+        {{ recommendation.rec_rating }}<br>
+        {{ recommendation.created_by }}<br>
+        {{ recommendation.time_created }}<br>
+
+        {% endfor %}
+    </div>
+</body>
+
+</html>
