@@ -7,7 +7,6 @@
 <meta name="Description" content="Enter your description here"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 {% block styles %}
 {% endblock %}
@@ -41,14 +40,13 @@
                         <a class="nav-link" href="">Log In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Register</a>
+                        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <h1>Testing base template - I am part of it!</h1>
     {% block content %}
     {% endblock %}
 
