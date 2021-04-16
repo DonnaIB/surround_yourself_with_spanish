@@ -19,7 +19,7 @@ mongo = PyMongo(app)
 
 @app.route("/")
 @app.route("/get_recommendations")
-def get_recommendation():
+def get_recommendations():
     recommendations = mongo.db.recommendations.find()
     return render_template("recommendations.html", 
     recommendations=recommendations)
