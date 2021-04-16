@@ -8,16 +8,12 @@
         <h5 class="card-title">Enter your details below</h5>
         <form method="POST" action="{{ url_for('register' )}}">
 
-            <!-- first and last name -->
+            <!-- username -->
             <div class="form-group">
-                <label for="first_name">First Name</label>
-                <input type="text" class="form-control" id="first_name" name=first_name required
-                    placeholder="First name">
-            </div>
-            <div class="form-group">
-                <label for="last_name">Last Name</label>
-                <input type="text" class="form-control" id="last_name" required
-                    placeholder="Last name">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" minlength="3" max-length="15" 
+                pattern="^[a-zA-Z0-9]{3,15}$" required placeholder="Username">
+                    
             </div>
 
             <!-- email -->
@@ -32,12 +28,13 @@
             <!-- password -->
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" 
+                pattern="^[a-zA-Z0-9]{8,15}$" minlength="8" minlength="15" required>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="password">Password Confirmation</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-            </div>
+            </div> -->
 
             <!-- register button -->
             <button type="submit" class="btn btn-primary">Register</button>
