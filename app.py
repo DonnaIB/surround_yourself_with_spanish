@@ -21,10 +21,12 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_recommendations")
 def get_recommendations():
-    recommendations = mongo.db.recommendations.find()
-    return render_template("recommendations.html", recommendations=recommendations)
+    recommendations = list(mongo.db.recommendations.find())
+    return render_template(
+        "recommendations.html", recommendations=recommendations)
 
- # register a new user
+
+# register a new user
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

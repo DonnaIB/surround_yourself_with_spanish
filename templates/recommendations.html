@@ -5,35 +5,34 @@
 
     <div class="album py-5 bg-light">
       <div class="container">
-
         <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <span class="material-icons" style="text-align: center; color: indianred; font-size: 100px; padding-top: 20px;">
-                  movie
-              </span>
-              <div class="card-body">
-                <p class="card-text">Name: Dolor y Gloria</p>
-                <p class="card-text">By: Almodovar</p>
-                <p class="card-text">
-                    <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          {% for recommendation in recommendations %}
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+               <span class="material-icons category-icons">
+                {{ recommendation.category_icon }}
+               </span>
+                <div class="card-body">
+                  <p class="card-text">Name: {{ recommendation.rec_name }}</p>
+                  <p class="card-text">By: {{ recommendation.rec_by }}</p>
+                  <p class="card-text">
+                    <small><a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Read description
-                    </a>
+                    </a></small>
                     <p class="collapse" id="collapseExample">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                      {{ recommendation.rec_description}}
                     </p>
 
                 <hr>
-                <p class="card-text">Level: Intermediate</p>
+                <p class="card-text">Level: {{ recommendation.level }}</p>
                 <div class="d-flex">
                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
                 </div>
-                 <small class="text-muted padding-top: 20px;">DIB</small>
+                 <small class="text-muted padding-top: 20px;">{{ recommendation.created_by}}</small>
               </div>
             </div>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>

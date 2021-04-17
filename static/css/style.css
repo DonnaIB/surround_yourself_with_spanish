@@ -2,6 +2,8 @@
 .card {
     max-width: 80%;
     margin-top: 50px;
+    border-color: #AA151B;
+    border-width: 3px;
 }
 .card-header{
     background-color: white;
@@ -27,7 +29,15 @@
     margin-top: 20px;
 }
 
+/* icons */
 
+.category-icons {
+    text-align: center; 
+    color: #AA151B; 
+    font-size: 100px; 
+    padding-top: 20px;
+
+}
 
 #module {
     width: 500px;
