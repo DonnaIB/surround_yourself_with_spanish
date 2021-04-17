@@ -7,6 +7,11 @@
     background-color: white;
 }
 
+.card-footer {
+    background-color: white;
+    margin-top: 20px;
+}
+
 /* flash messages */
 
 .flash {
