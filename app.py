@@ -22,9 +22,7 @@ mongo = PyMongo(app)
 @app.route("/get_recommendations")
 def get_recommendations():
     recommendations = mongo.db.recommendations.find()
-    return render_template("recommendations.html", 
-    recommendations=recommendations)
-
+    return render_template("recommendations.html", recommendations=recommendations)
 
  # register a new user
 @app.route("/register", methods=["GET", "POST"])
@@ -38,8 +36,8 @@ def register():
             flash("Username already exist. Please chose another username")
             return redirect(url_for("register"))
         
-         # check if email already exists in db
-        existing_email = mongo.db.users.find_one(
+            # check if email already exists in db
+            existing_email = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
 
         if existing_email:
@@ -58,6 +56,7 @@ def register():
         # session cookie for new user
         session["user"] = request.form.get("username").lower()
         flash("Congratulations! You are now registered.")
+        return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
 
@@ -73,7 +72,8 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Hello!")
+                return redirect(url_for("profile", username=session["user"]))            
+                
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -85,6 +85,13 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("profile.html", username=username)
 
 
 if __name__ == "__main__":
