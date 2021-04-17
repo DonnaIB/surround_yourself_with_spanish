@@ -1,5 +1,3 @@
-
-
 /*  registration form */
 .card {
     max-width: 80%;
@@ -9,12 +7,11 @@
     background-color: white;
 }
 
-
 /* flash messages */
 
 .flash {
     background-color: #AA151B;
-    color: #CCCCCC;
+    color: white;
     max-width: 80%;
     line-height: 2;
     margin: auto;
