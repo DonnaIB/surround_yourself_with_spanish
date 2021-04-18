@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="card container">
+    <h5 class="card-header text-center">Add a Recommendation</h5>
+    <div class="card-body">
+        <h5 class="card-title">Please complete all the fields below</h5>
+        <form method="POST" action="">
+
+            <!-- category dropdown -->
+            <div class="form-group">
+                <label for="category_name">Category</label>
+                <select class="form-control" id="category_name" name="category_name">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+
+            <!-- name -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="username" name="username" required placeholder="">
+
+            </div>
+
+            <!-- author / director -->
+            <div class="form-group">
+                <label for="rec_by">Author / Director</label>
+                <input type="password" class="form-control" name="rec_by" id="password" placeholder=""
+                    pattern="^[a-zA-Z0-9]{8,15}$" minlength="8" minlength="15" required>
+            </div>
+
+            <!-- description -->
+            <div class="form-group">
+                <label for="rec_description">Description</label>
+                <textarea class="form-control" id="rec_description" name="rec_description" rows="3"></textarea>
+            </div>
+
+            <!-- level -->
+            <div class="form-group">
+                <label for="level">Level</label><small> (What level of Spanish speaker would you recommend this for?)</small>
+                <select class="form-control" id="level" name="level">
+                  <option>blah</option>
+                  <option>blah</option>
+                  <option>blah</option>
+                  <option>blah</option>
+                  <option>blah</option>
+                </select>
+            </div>
+
+            <!-- rating -->
+            <div class="form-group">
+                <div>
+                <label for="rec_description">Rating out of 5: </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1">
+                    <label class="form-check-label" for="rec_rating">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1">
+                    <label class="form-check-label" for="rec_rating">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1">
+                    <label class="form-check-label" for="rec_rating">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1">
+                    <label class="form-check-label" for="rec_rating">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1">
+                    <label class="form-check-label" for="rec_rating">5</label>
+                </div>
+            </div>  
+
+            <!-- submit button -->
+            <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

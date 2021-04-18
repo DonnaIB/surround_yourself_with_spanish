@@ -18,6 +18,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# render main recommendations page
 @app.route("/")
 @app.route("/get_recommendations")
 def get_recommendations():
@@ -61,7 +62,7 @@ def register():
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
 
-
+# user login
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -89,6 +90,7 @@ def login():
     return render_template("login.html")
 
 
+# render profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.users.find_one(
@@ -107,6 +109,11 @@ def logout():
     flash("You have successfully logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_recommendation")
+def add_recommendation():
+    return render_template("add_recommendation.html")
 
 
 if __name__ == "__main__":
