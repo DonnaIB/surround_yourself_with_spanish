@@ -111,8 +111,22 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_recommendation")
+@app.route("/add_recommendation", methods=["GET", "POST"])
 def add_recommendation():
+    if request.method == "POST":
+        recommendation = {
+            "category_name": request.form.get("category_name"),
+            "rec_name": request.form.get("rec_name"),
+            "rec_by": request.form.get("rec_by"),
+            "rec_description": request.form.get("rec_description"),
+            "level": request.form.get("level"),
+            "rec_rating": request.form.get("rec_rating"),
+            "created_by": session["user"]
+        }
+        mongo.db.recommendations.insert_one(recommendation)
+        flash("Yay!")
+        return redirect(url_for("get_recommendations"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     level = mongo.db.level.find()
     return render_template(
