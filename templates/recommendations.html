@@ -2,60 +2,63 @@
 {% block content %}
 
 
-    <div class="album py-5 bg-light" style="background-color: white;">
-      <div class="container">
-        <div class="row">
-          {% for recommendation in recommendations %}
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow {{ recommendation.category_icon }}">
-               <span class="material-icons icons-{{ recommendation.category_icon }}">
-                {{ recommendation.category_icon }}
-               </span>
-                <div class="card-body">
-                  <p class="card-text">Name: {{ recommendation.rec_name }}</p>
-                  <p class="card-text">By: {{ recommendation.rec_by }}</p>
-                  <p class="card-text">
-                    <small><a data-toggle="collapse" href="#collapseExample"  class="description" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Read description
-                    </a></small>
-                    <p class="collapse" id="collapseExample">
-                      {{ recommendation.rec_description}}
-                    </p>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      {% for recommendation in recommendations %}
+      <div class="col-md-4">
+        <div class="card-deck">
+          <div class="card mb-4 box-shadow {{ recommendation.category_icon }}">
+            <span class="material-icons icons-{{ recommendation.category_icon }}">
+              {{ recommendation.category_icon }}
+            </span>
+            <div class="card-body">
+              <p class="card-text">Name: {{ recommendation.rec_name }}</p>
+              <p class="card-text">By: {{ recommendation.rec_by }}</p>
+              <p class="card-text">
+                <small><a data-toggle="collapse" href="#collapseExample" class="description" role="button"
+                    aria-expanded="false" aria-controls="collapseExample">
+                    Read description
+                  </a></small>
+                <p class="collapse" id="collapseExample">
+                  {{ recommendation.rec_description}}
+                </p>
 
                 <hr>
                 <p class="card-text">Level: {{ recommendation.level }}</p>
-                
+
                 <div class="d-flex">
                   {% if recommendation.rec_rating == 1 %}
-                  <span class="material-icons" style="color: gold;">star</span>
+                  <span class="material-icons rating">star</span>
                   {% elif recommendation.rec_rating == 2  %}
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
                   {% elif recommendation.rec_rating == 3  %}
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
                   {% elif recommendation.rec_rating == 4  %}
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
                   {% else %}
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
-                  <span class="material-icons" style="color: gold;">star</span>
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
                   {% endif %}
                 </div>
-                 <small class="text-muted created-by pull-right">Created by: {{ recommendation.created_by}}</small>
-              </div>
+                <small class="text-muted created-by pull-right">Created by: {{ recommendation.created_by}}</small>
             </div>
           </div>
-          {% endfor %}
         </div>
       </div>
+      {% endfor %}
     </div>
+  </div>
+</div>
 
 
 {% endblock %}

@@ -113,7 +113,10 @@ def logout():
 
 @app.route("/add_recommendation")
 def add_recommendation():
-    return render_template("add_recommendation.html")
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    level = mongo.db.level.find()
+    return render_template(
+        "add_recommendation.html", categories=categories, level=level)
 
 
 if __name__ == "__main__":

@@ -96,3 +96,7 @@
 #module a:not(.collapsed):after {
     content: '- Show Less';
 }
+
+.rating {
+    color: gold;
+}
