@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -37,8 +38,7 @@ def register():
 
         if existing_user:
             flash("Username already exist. Please chose another username")
-            return redirect(url_for("register"))
-        
+            return redirect(url_for("register"))      
             # check if email already exists in db
             existing_email = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
@@ -113,15 +113,20 @@ def logout():
 
 @app.route("/add_recommendation", methods=["GET", "POST"])
 def add_recommendation():
+    now = datetime.now()
     if request.method == "POST":
+        selected_category = mongo.db.categories.find_one(
+            {"category_name": request.form.get("category_name")})
         recommendation = {
             "category_name": request.form.get("category_name"),
+            "category_icon": selected_category["category_icon"],
             "rec_name": request.form.get("rec_name"),
             "rec_by": request.form.get("rec_by"),
             "rec_description": request.form.get("rec_description"),
             "level": request.form.get("level"),
             "rec_rating": request.form.get("rec_rating"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "time_created": now.strftime("%d/%m/%Y, %H:%M:%S")
         }
         mongo.db.recommendations.insert_one(recommendation)
         flash("Yay!")

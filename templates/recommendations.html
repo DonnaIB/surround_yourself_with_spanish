@@ -28,16 +28,16 @@
                 <p class="card-text">Level: {{ recommendation.level }}</p>
 
                 <div class="d-flex">
-                  {% if recommendation.rec_rating == 1 %}
+                  {% if recommendation.rec_rating == "1" %}
                   <span class="material-icons rating">star</span>
-                  {% elif recommendation.rec_rating == 2  %}
-                  <span class="material-icons rating">star</span>
-                  <span class="material-icons rating">star</span>
-                  {% elif recommendation.rec_rating == 3  %}
+                  {% elif recommendation.rec_rating == "2"  %}
                   <span class="material-icons rating">star</span>
                   <span class="material-icons rating">star</span>
+                  {% elif recommendation.rec_rating == "3"  %}
                   <span class="material-icons rating">star</span>
-                  {% elif recommendation.rec_rating == 4  %}
+                  <span class="material-icons rating">star</span>
+                  <span class="material-icons rating">star</span>
+                  {% elif recommendation.rec_rating == "4"  %}
                   <span class="material-icons rating">star</span>
                   <span class="material-icons rating">star</span>
                   <span class="material-icons rating">star</span>
