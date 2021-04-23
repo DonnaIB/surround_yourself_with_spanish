@@ -51,8 +51,11 @@
                   {% endif %}
                 </div>
                 <small class="text-muted created-by">Created by: {{ recommendation.created_by}}</small>
+                {% if session.user|lower == recommendation.created_by|lower %}
+                <a class="material-icons edit" type="button" href="{{ url_for('edit_recommendation', recommendation_id=recommendation._id)}}" >edit</a>
+                {% endif %}
             </div>
-            <a class="material-icons edit" type="button" href="{{ url_for('edit_recommendation', recommendation_id=recommendation._id)}}" >edit</a>
+
           </div>
         </div>
       </div>

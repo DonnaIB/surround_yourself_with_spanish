@@ -58,14 +58,11 @@
 }
 
 .edit {
-    margin: auto;
-    padding-bottom: 10px;
     color: grey;
 }
 
 .edit:hover {
-    margin: auto;
-    padding-bottom: 10px;
+
     color: black;
 }
 
