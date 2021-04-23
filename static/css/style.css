@@ -110,4 +110,14 @@
 
 }
 
+/* buttons */
 
+.btn-primary {
+    background-color: #058E6E;
+    border-color: #058E6E;
+}
+
+.cancel {
+    background-color: #AA151B;
+    border-color: #AA151B;
+}
