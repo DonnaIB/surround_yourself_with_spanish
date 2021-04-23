@@ -12,30 +12,36 @@
             <div class="form-group">
                 <label for="category_name">Category</label>
                 <select class="form-control" id="category_name" name="category_name" required>
-                    <option value="" disabled selected>Choose category</option>
+                    <option value="" selected>Choose category</option>
                     {% for category in categories %}
-                     <option value="{{ category.category_name }}" placeholder="Choose category">{{ category.category_name }}</option>
-                    {% endfor %}
+                    {% if category.category_name == recommendation.category_name %}
+                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                    {% else %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endif %}
+                {% endfor %}
                 </select>
               </div>
 
             <!-- name -->
             <div class="form-group">
                 <label for="rec_name">Name</label>
-                <input type="text" class="form-control" id="rec_name" name="rec_name" required placeholder="">
+                <input type="text" class="form-control" id="rec_name" name="rec_name" value="{{ recommendation.rec_name }}" required placeholder="">
 
             </div>
 
             <!-- author / director -->
             <div class="form-group">
                 <label for="rec_by">Author / Director</label>
-                <input type="text" class="form-control" name="rec_by" id="rec_by" placeholder=""required>
+                <input type="text" class="form-control" name="rec_by" id="rec_by" value="{{ recommendation.rec_by }}" placeholder="" required>
             </div>
 
             <!-- description -->
             <div class="form-group">
                 <label for="rec_description">Description</label>
-                <textarea class="form-control" id="rec_description" name="rec_description" rows="3" required></textarea>
+                <textarea class="form-control" id="rec_description" name="rec_description" rows="3" required>
+                    {{- recommendation.rec_description -}}
+                </textarea>
             </div>
 
             <!-- level -->
@@ -44,8 +50,11 @@
                 <select class="form-control" id="level" name="level" required>
                     <option value="" disabled selected>Choose level</option>
                     {% for level in level %}
-                    <option value="{{ level.level }}" placeholder="Choose category">{{ level.level }}</option>
-                    {% endfor%}
+                    {% if level.level == recommendation.level %}
+                        <option value="{{ level.level }}"  selected placeholder="Choose category">{{ level.level }}</option>
+                    {% endif %}
+                        <option value="{{ level.level }}" placeholder="Choose category">{{ level.level }}</option>
+                    {% endfor %}
                 </select>
             </div>
 
@@ -56,7 +65,7 @@
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1" required> 
-                    <label class="form-check-label" for="rec_rating" type="number">1</label>
+                    <label class="form-check-label" for="rec_rating">1</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="2" required>
@@ -79,6 +88,7 @@
             <!-- submit button -->
             <div>
             <button type="submit" class="btn btn-primary">Edit</button>
+            <a href="{{ url_for('get_recommendations') }}" class="btn btn-primary cancel">Cancel</a>
             </div>
         </form>
     </div>
