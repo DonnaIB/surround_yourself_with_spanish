@@ -1,4 +1,4 @@
-/*  registration form */
+/* recommendation card*/
 .card {
     max-width: 80%;
     margin-top: 50px;
@@ -25,6 +25,48 @@
 .card-footer {
     background-color: white;
     margin-top: 20px;
+}
+
+.created-by {
+    padding-top: 30px;
+}
+
+#module {
+    width: 500px;
+}
+
+#module p.collapse[aria-expanded="false"] {
+    display: block;
+    height: 40px !important;
+    overflow: hidden;
+}
+
+#module p.collapsing[aria-expanded="false"] {
+    height: 40px !important;
+}
+
+#module a.collapsed:after {
+    content: '+ Show More';
+}
+
+#module a:not(.collapsed):after {
+    content: '- Show Less';
+}
+
+.rating {
+    color: gold;
+}
+
+.edit {
+    margin: auto;
+    padding-bottom: 10px;
+    color: grey;
+}
+
+.edit:hover {
+    margin: auto;
+    padding-bottom: 10px;
+    color: black;
 }
 
 /* flash messages */
@@ -69,34 +111,3 @@
 }
 
 
-/* recommendation card*/
-
-.created-by {
-    padding-top: 30px;
-}
-
-#module {
-    width: 500px;
-}
-
-#module p.collapse[aria-expanded="false"] {
-    display: block;
-    height: 40px !important;
-    overflow: hidden;
-}
-
-#module p.collapsing[aria-expanded="false"] {
-    height: 40px !important;
-}
-
-#module a.collapsed:after {
-    content: '+ Show More';
-}
-
-#module a:not(.collapsed):after {
-    content: '- Show Less';
-}
-
-.rating {
-    color: gold;
-}

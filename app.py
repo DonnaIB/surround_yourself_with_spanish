@@ -111,6 +111,7 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Lets a user add a new recommendation
 @app.route("/add_recommendation", methods=["GET", "POST"])
 def add_recommendation():
     now = datetime.now()
@@ -136,6 +137,16 @@ def add_recommendation():
     level = mongo.db.level.find()
     return render_template(
         "add_recommendation.html", categories=categories, level=level)
+
+
+@app.route("/edit_recommendation/<recommendation_id>", methods=["GET", "POST"])
+def edit_recommendation(recommendation_id):
+    recommendation = mongo.db.recommendations.find_one(
+        {"_id": ObjectId(recommendation_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    level = mongo.db.level.find()
+    return render_template("edit_recommendation.html", 
+        recommendation=recommendation, categories=categories, level=level)
 
 
 if __name__ == "__main__":

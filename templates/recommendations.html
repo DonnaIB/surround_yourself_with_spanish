@@ -50,8 +50,9 @@
                   <span class="material-icons rating">star</span>
                   {% endif %}
                 </div>
-                <small class="text-muted created-by pull-right">Created by: {{ recommendation.created_by}}</small>
+                <small class="text-muted created-by">Created by: {{ recommendation.created_by}}</small>
             </div>
+            <a class="material-icons edit" type="button" href="{{ url_for('edit_recommendation', recommendation_id=recommendation._id)}}" >edit</a>
           </div>
         </div>
       </div>
