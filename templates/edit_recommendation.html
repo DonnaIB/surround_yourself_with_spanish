@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="card container">
+    <h5 class="card-header text-center">Edit Recommendation</h5>
+    <div class="card-body">
+        <h5 class="card-title">Please complete all the fields below</h5>
+        <form method="POST" action="{{ url_for('edit_recommendation', recommendation_id=recommendation._id) }}">
+
+            <!-- category dropdown -->
+            <div class="form-group">
+                <label for="category_name">Category</label>
+                <select class="form-control" id="category_name" name="category_name" required>
+                    <option value="" disabled selected>Choose category</option>
+                    {% for category in categories %}
+                     <option value="{{ category.category_name }}" placeholder="Choose category">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+
+            <!-- name -->
+            <div class="form-group">
+                <label for="rec_name">Name</label>
+                <input type="text" class="form-control" id="rec_name" name="rec_name" required placeholder="">
+
+            </div>
+
+            <!-- author / director -->
+            <div class="form-group">
+                <label for="rec_by">Author / Director</label>
+                <input type="text" class="form-control" name="rec_by" id="rec_by" placeholder=""required>
+            </div>
+
+            <!-- description -->
+            <div class="form-group">
+                <label for="rec_description">Description</label>
+                <textarea class="form-control" id="rec_description" name="rec_description" rows="3" required></textarea>
+            </div>
+
+            <!-- level -->
+            <div class="form-group">
+                <label for="level">Level</label><small> (What level of Spanish speaker would you recommend this for?)</small>
+                <select class="form-control" id="level" name="level" required>
+                    <option value="" disabled selected>Choose level</option>
+                    {% for level in level %}
+                    <option value="{{ level.level }}" placeholder="Choose category">{{ level.level }}</option>
+                    {% endfor%}
+                </select>
+            </div>
+
+            <!-- rating -->
+            <div class="form-group" data-toggle="validator">
+                <div>
+                <label for="rec_description">Rating out of 5: </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1" required> 
+                    <label class="form-check-label" for="rec_rating" type="number">1</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="2" required>
+                    <label class="form-check-label" for="rec_rating">2</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="3" required>
+                    <label class="form-check-label" for="rec_rating">3</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="4" required>
+                    <label class="form-check-label" for="rec_rating">4</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="5" required>
+                    <label class="form-check-label" for="rec_rating">5</label>
+                </div>
+            </div>  
+
+            <!-- submit button -->
+            <div>
+            <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
