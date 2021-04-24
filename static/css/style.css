@@ -1,7 +1,7 @@
 /* recommendation card*/
 .card {
     max-width: 80%;
-    margin-top: 50px;
+    margin: auto;
     border-width: 3px;
 }
 
@@ -117,4 +117,9 @@
 .cancel {
     background-color: #AA151B;
     border-color: #AA151B;
+}
+
+.delete {
+    background-color: #058E6E;
+    border-color: #058E6E;
 }
