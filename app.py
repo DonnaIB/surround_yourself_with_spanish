@@ -91,14 +91,19 @@ def login():
     return render_template("login.html")
 
 
-# render profile page
+# display user's recommendations on  profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
     if session["user"]:
-        return render_template("profile.html", username=username)
+        my_recommendations = list(mongo.db.recommendations.find(
+            {"created_by": session["user"]}).sort("time_created"))
+
+        return render_template(
+            "profile.html", 
+            username=username, 
+            my_recommendations=my_recommendations)
 
     return redirect(url_for("login"))
 
@@ -143,6 +148,7 @@ def add_recommendation():
         "add_recommendation.html", categories=categories, level=level)
 
 
+# Lets a user edit a recommendation
 @app.route("/edit_recommendation/<recommendation_id>", methods=["GET", "POST"])
 def edit_recommendation(recommendation_id):
     now = datetime.now()
@@ -173,6 +179,7 @@ def edit_recommendation(recommendation_id):
         categories=categories, level=level)
 
 
+# Lets a user delete thier recommendation
 @app.route("/delete_recommendation/<recommendation_id>")
 def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
