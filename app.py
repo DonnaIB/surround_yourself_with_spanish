@@ -119,6 +119,8 @@ def add_recommendation():
     if request.method == "POST":
         selected_category = mongo.db.categories.find_one(
             {"category_name": request.form.get("category_name")})
+        selected_admin = mongo.db.users.find_one(
+            {"username": session["user"]})
         recommendation = {
             "category_name": request.form.get("category_name"),
             "category_icon": selected_category["category_icon"],
@@ -128,6 +130,7 @@ def add_recommendation():
             "level": request.form.get("level"),
             "rec_rating": request.form.get("rec_rating"),
             "created_by": session["user"],
+            "is_admin": selected_admin["is_admin"],
             "time_created": now.strftime("%d/%m/%Y, %H:%M:%S")
         }
         mongo.db.recommendations.insert_one(recommendation)
@@ -169,6 +172,13 @@ def edit_recommendation(recommendation_id):
         "edit_recommendation.html",recommendation=recommendation, 
         categories=categories, level=level)
 
+
+@app.route("/delete_recommendation/<recommendation_id>")
+def delete_recommendation(recommendation_id):
+    mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
+    flash("Your recommendation has been deleted")
+    return redirect(url_for("get_recommendations"))
+    
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
