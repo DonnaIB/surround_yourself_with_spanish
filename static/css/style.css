@@ -1,3 +1,14 @@
+/* nav */
+
+nav {
+    background-color: #f8f9fa;
+}
+
+main {
+    padding: 25px 25px;
+    min-height: 1000vh;
+}
+
 /* recommendation card*/
 .card {
     max-width: 80%;
@@ -65,6 +76,11 @@
 
     color: black;
 }
+
+
+/* forms */
+
+
 
 /* flash messages */
 
