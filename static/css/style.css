@@ -123,3 +123,14 @@
     background-color: #058E6E;
     border-color: #058E6E;
 }
+
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#AA151B;
+    color: white;
+    text-align: center;
+  }
