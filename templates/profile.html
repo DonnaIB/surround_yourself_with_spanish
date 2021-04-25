@@ -6,16 +6,20 @@
   <div class="container">
     <div class="row">
       {% if  not my_recommendations|length %}
-      <p class="col-12 profile-text">You currently have no recommenations. To add one click the button below, view recommendations that others have
-        shared.</p>
+      <div class="row">
+        <p class="col-12 profile-text">Opps! You currently have no recommendations. </p>
 
-        <a type="button" href="{{ url_for('add_recommendation') }}" class="btn btn-primary">
-          Add Recommendation
-        </a>
-        <a type="button" href="{{ url_for('get_recommendations') }}" class="btn btn-primary">
-          View Recommendations
-        </a>
-
+        <p class="col-12 profile-text">Please add a recommendation or view recommendations that others have
+          shared.</p>
+        <div class="profile-btn">
+          <a type="button" href="{{ url_for('add_recommendation') }}" class="btn btn-primary">
+            Add Recommendation
+          </a>
+          <a type="button" href="{{ url_for('get_recommendations') }}" class="btn btn-primary">
+            View Recommendations
+          </a>
+        </div>
+      </div>
       {% endif %}
       {% for my_recommendation in my_recommendations %}
       <div class="col-md-4">

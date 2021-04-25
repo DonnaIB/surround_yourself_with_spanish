@@ -137,7 +137,7 @@ main {
 .btn-primary {
     background-color: #058E6E;
     border-color: #058E6E;
-    margin: 10px auto;
+    margin: 10px;
 }
 
 .cancel {
@@ -150,6 +150,11 @@ main {
     border-color: #058E6E;
 }
 
+.profile-btn {
+    margin: auto;
+    padding-top: 25px;
+    text-align: center;
+}
 
 /* footer */
 
