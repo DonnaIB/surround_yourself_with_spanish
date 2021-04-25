@@ -6,7 +6,16 @@ nav {
 
 main {
     padding: 25px 25px;
-    min-height: 1000vh;
+    min-height: 1000px;
+}
+
+.title {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.profile-text {
+    text-align: center;
 }
 
 /* recommendation card*/
@@ -128,6 +137,7 @@ main {
 .btn-primary {
     background-color: #058E6E;
     border-color: #058E6E;
+    margin: 10px auto;
 }
 
 .cancel {
@@ -141,6 +151,8 @@ main {
 }
 
 
+/* footer */
+
 footer {
     position: fixed;
     left: 0;
@@ -149,4 +161,15 @@ footer {
     background-color:#AA151B;
     color: white;
     text-align: center;
+    padding-top: 15px;
+  }
+
+
+/* media queries */
+
+  @media screen and (max-width: 769px) {
+        .card {
+            max-width: 100%;
+        }
+
   }
