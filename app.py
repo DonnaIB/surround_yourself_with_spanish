@@ -24,8 +24,10 @@ mongo = PyMongo(app)
 @app.route("/get_recommendations")
 def get_recommendations():
     recommendations = list(mongo.db.recommendations.find())
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})["is_admin"]
     return render_template(
-        "recommendations.html", recommendations=recommendations)
+        "recommendations.html", recommendations=recommendations, user=user)
 
 
 # register a new user
