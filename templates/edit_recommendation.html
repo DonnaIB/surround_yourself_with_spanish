@@ -26,20 +26,20 @@
             <!-- name -->
             <div class="form-group">
                 <label for="rec_name">Name</label>
-                <input type="text" class="form-control" id="rec_name" name="rec_name" value="{{ recommendation.rec_name }}" required placeholder="">
+                <input type="text" class="form-control" id="rec_name" name="rec_name" value="{{ recommendation.rec_name }}" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')">
 
             </div>
 
             <!-- author / director -->
             <div class="form-group">
                 <label for="rec_by">Author / Director</label>
-                <input type="text" class="form-control" name="rec_by" id="rec_by" value="{{ recommendation.rec_by }}" placeholder="" required>
+                <input type="text" class="form-control" name="rec_by" id="rec_by" value="{{ recommendation.rec_by }}" pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')" required>
             </div>
 
             <!-- description -->
             <div class="form-group">
                 <label for="rec_description">Description</label>
-                <textarea class="form-control" id="rec_description" name="rec_description" rows="3" required>
+                <textarea class="form-control" id="rec_description" name="rec_description" rows="3" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid description')">
                     {{- recommendation.rec_description -}}
                 </textarea>
             </div>
