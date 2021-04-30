@@ -24,10 +24,14 @@ mongo = PyMongo(app)
 @app.route("/get_recommendations")
 def get_recommendations():
     recommendations = list(mongo.db.recommendations.find())
-    user = mongo.db.users.find_one(
-        {"username": session["user"]})["is_admin"]
-    return render_template(
-        "recommendations.html", recommendations=recommendations, user=user)
+    if "user" in session:
+        user = mongo.db.users.find_one(
+           {"username": session["user"]})
+        return render_template(
+           "recommendations.html", recommendations=recommendations, user=user)  
+    else:
+        return render_template(
+           "recommendations.html", recommendations=recommendations, user="")  
 
 
 # register a new user
@@ -64,6 +68,7 @@ def register():
         flash("Congratulations! You are now registered.")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("register.html")
+
 
 # user login
 @app.route("/login", methods=["GET", "POST"])

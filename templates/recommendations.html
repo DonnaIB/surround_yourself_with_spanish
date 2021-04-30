@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3>{{ user.username }}</h3>
 <div class="album py-5">
   <div class="container">
     <div class="row">
@@ -79,7 +78,7 @@
                     </div>
                   </div>
                 </div>
-                {% elif user == True %}
+                {% elif user.is_admin %}
                 <a class="material-icons edit" type="button"
                   href="{{ url_for('edit_recommendation', recommendation_id=recommendation._id)}}">edit</a>
                 <a class="material-icons edit" type="button" data-toggle="modal"
