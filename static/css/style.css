@@ -169,6 +169,17 @@ footer {
     padding-top: 15px;
   }
 
+/* 404 page */
+
+.error {
+    text-align: center;
+    font-size: xx-large;
+}
+
+.warning {
+    font-size: 150px;
+    color: #AA151B;
+}
 
 /* media queries */
 

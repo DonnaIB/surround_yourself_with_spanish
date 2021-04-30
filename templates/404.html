@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main>
+    <!--404 message-->
+    <div class="row error">
+        <div class="col s12">
+            <div>
+                <h1><strong>404</strong><br> Page Not Found!
+                </h1>
+                <span class="material-icons warning">
+                    warning
+                </span>
+                <p> Oops! Seems like you have taken a wrong turn.
+                <p>Let's get you home.</p>
+                <a href="{{ url_for('get_recommendations') }}" class="btn btn-primary">Home</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

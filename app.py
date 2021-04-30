@@ -192,7 +192,13 @@ def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
     flash("Your recommendation has been deleted")
     return redirect(url_for("get_recommendations"))
-    
+
+
+# return 404 error page
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
