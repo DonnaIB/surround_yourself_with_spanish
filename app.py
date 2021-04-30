@@ -81,7 +81,7 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                    existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 return redirect(url_for("profile", username=session["user"]))            
                 
@@ -101,9 +101,9 @@ def login():
 # display user's recommendations on  profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    username = mongo.db.users.find_one(
+    if "user" in session:
+        username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    if session["user"]:
         my_recommendations = list(mongo.db.recommendations.find(
             {"created_by": session["user"]}).sort("time_created"))
 
@@ -112,7 +112,7 @@ def profile(username):
             username=username, 
             my_recommendations=my_recommendations)
 
-    return redirect(url_for("login"))
+    return render_template('404.html'), 404
 
 
 # Logs user out of their account
@@ -159,7 +159,7 @@ def add_recommendation():
 @app.route("/edit_recommendation/<recommendation_id>", methods=["GET", "POST"])
 def edit_recommendation(recommendation_id):
     now = datetime.now()
-    if "user" in session: 
+    if "user" in session:
         if request.method == "POST":
             selected_category = mongo.db.categories.find_one(
                 {"category_name": request.form.get("category_name")})
