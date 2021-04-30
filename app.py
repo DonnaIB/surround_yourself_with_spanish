@@ -203,6 +203,21 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
+# render categories page
+@app.route("/")
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find())
+    if "user" in session:
+        user = mongo.db.users.find_one(
+           {"username": session["user"]})
+        if user["is_admin"]:
+            return render_template(
+                "categories.html", categories=categories)  
+        else:
+            return render_template('404.html'), 404
+    return render_template('404.html'), 404
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

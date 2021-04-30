@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="album py-5">
+    <div class="container">
+        <div class="row">
+            {% for category in categories %}
+            <div class="col-md-4">
+                <div class="card-deck">
+                    <div class="card mb-4 box-shadow {{ category.category_icon }}">
+                        <span class="material-icons icons-{{ category.category_icon }}">
+                            {{ category.category_icon }}
+                        </span>
+                        <div class="card-body">
+                            <p class="card-text category-name">{{ category.category_name }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

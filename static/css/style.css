@@ -169,6 +169,12 @@ footer {
     padding-top: 15px;
   }
 
+/* categories */
+
+.category-name {
+    text-align: center;
+}
+
 /* 404 page */
 
 .error {
