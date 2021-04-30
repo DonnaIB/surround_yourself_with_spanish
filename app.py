@@ -128,31 +128,32 @@ def logout():
 @app.route("/add_recommendation", methods=["GET", "POST"])
 def add_recommendation():
     now = datetime.now()
-    if request.method == "POST":
-        selected_category = mongo.db.categories.find_one(
-            {"category_name": request.form.get("category_name")})
-        selected_admin = mongo.db.users.find_one(
-            {"username": session["user"]})
-        recommendation = {
-            "category_name": request.form.get("category_name"),
-            "category_icon": selected_category["category_icon"],
-            "rec_name": request.form.get("rec_name"),
-            "rec_by": request.form.get("rec_by"),
-            "rec_description": request.form.get("rec_description"),
-            "level": request.form.get("level"),
-            "rec_rating": request.form.get("rec_rating"),
-            "created_by": session["user"],
-            "is_admin": selected_admin["is_admin"],
-            "time_created": now.strftime("%d/%m/%Y, %H:%M:%S")
-        }
-        mongo.db.recommendations.insert_one(recommendation)
-        flash("Yay!")
+    if "user" in session:
+        if request.method == "POST":
+            selected_category = mongo.db.categories.find_one(
+                {"category_name": request.form.get("category_name")})
+            recommendation = {
+                "category_name": request.form.get("category_name"),
+                "category_icon": selected_category["category_icon"],
+                "rec_name": request.form.get("rec_name"),
+                "rec_by": request.form.get("rec_by"),
+                "rec_description": request.form.get("rec_description"),
+                "level": request.form.get("level"),
+                "rec_rating": request.form.get("rec_rating"),
+                "created_by": session["user"],
+                "time_created": now.strftime("%d/%m/%Y, %H:%M:%S")
+                }
+            mongo.db.recommendations.insert_one(recommendation)
+            flash("Your recommendation has successfully been addded!")
+            return redirect(url_for("get_recommendations"))
+
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        level = mongo.db.level.find()
+        return render_template(
+            "add_recommendation.html", categories=categories, level=level)
+    else:
         return redirect(url_for("get_recommendations"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    level = mongo.db.level.find()
-    return render_template(
-        "add_recommendation.html", categories=categories, level=level)
 
 
 # Lets a user edit a recommendation
@@ -182,7 +183,7 @@ def edit_recommendation(recommendation_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     level = mongo.db.level.find()
     return render_template(
-        "edit_recommendation.html",recommendation=recommendation, 
+        "edit_recommendation.html", recommendation=recommendation, 
         categories=categories, level=level)
 
 
