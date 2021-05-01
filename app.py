@@ -189,12 +189,12 @@ def edit_recommendation(recommendation_id):
         return render_template('404.html'), 404
 
 
-# Lets a user delete thier recommendation
+# Let a user delete their recommendation
 @app.route("/delete_recommendation/<recommendation_id>")
 def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
     flash("Your recommendation has been deleted")
-    return redirect(url_for("get_recommendations"))
+    return redirect(url_for("get_categories"))
 
 
 # return 404 error page
@@ -217,6 +217,68 @@ def get_categories():
         else:
             return render_template('404.html'), 404
     return render_template('404.html'), 404
+
+
+# Lets an admin add a category
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if "user" in session:
+        user = mongo.db.users.find_one(
+           {"username": session["user"]})
+        if user["is_admin"]:
+            existing_cat = mongo.db.categories.find_one(
+                {"category_name": request.form.get('category_name')})
+
+            if existing_cat:
+                flash("Category already exists")
+
+            elif request.method == "POST":
+                category = {
+                    "category_name": request.form.get("category_name"),
+                    "category_icon": request.form.get("category_icon")
+                    }
+                mongo.db.categories.insert_one(category)
+                flash("Your category has successfully been addded!")
+                return render_template("categories.html")
+
+            return render_template(
+                "add_category.html")
+    else:
+        return render_template('404.html'), 404
+
+
+# Let an admin edit a category
+@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    if "user" in session:
+        user = mongo.db.users.find_one(
+           {"username": session["user"]})
+        if user["is_admin"]:
+            if request.method == "POST":
+
+                submit = {
+                    "category_name": request.form.get("category_name"),
+                    "category_icon": request.form.get("category_icon"),
+                    }
+                mongo.db.categories.update(
+                    {"_id": ObjectId(category_id)}, submit)
+                flash("Your category has been updated!")
+                
+            category = mongo.db.categories.find_one(
+                {"_id": ObjectId(category_id)})
+            return render_template(
+                "edit_category.html", category=category)
+    else:
+        return render_template('404.html'), 404
+
+
+# Let an admin delete a category
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    flash("_id")
+    return redirect(url_for("get_categories"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
