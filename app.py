@@ -34,6 +34,16 @@ def get_recommendations():
            "recommendations.html", recommendations=recommendations, user="")  
 
 
+# search database
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recommendations = list(
+        mongo.db.recommendations.find({"$text": {"$search": query}}))
+    return render_template(
+        "recommendations.html", recommendations=recommendations)
+
+
 # register a new user
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -239,8 +249,10 @@ def add_category():
                     }
                 mongo.db.categories.insert_one(category)
                 flash("Your category has successfully been addded!")
-                return redirect(url_for("get_categories"))
-        return redirect(url_for("add_category"))
+                return redirect(url_for('get_categories'))
+
+            return render_template(
+                "add_category.html")
     else:
         return render_template('404.html'), 404
 

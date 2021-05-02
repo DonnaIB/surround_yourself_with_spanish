@@ -14,6 +14,28 @@ main {
     padding-bottom: 20px;
 }
 
+/* Search */
+
+.search {
+    margin: auto;
+    max-width: 50%;
+}
+
+.search-addon {
+    color: #f8f9fa;
+    margin-left: 2px;
+}
+
+.search-icon {
+    color: #058E6E;
+}
+
+.reset:hover {
+    text-decoration: none;
+}
+
+/* profile */
+
 .profile-text {
     text-align: center;
 }
@@ -215,4 +237,21 @@ footer {
         }
 
   }
+
+  @media screen and (max-width: 350px) {
+    .input-group {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        /* -ms-flex-wrap: wrap;
+        flex-wrap: wrap; */
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .search {
+        margin: auto;
+    }
+}
 
