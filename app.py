@@ -194,7 +194,7 @@ def edit_recommendation(recommendation_id):
 def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
     flash("Your recommendation has been deleted")
-    return redirect(url_for("get_categories"))
+    return redirect(url_for("get_recommendations"))
 
 
 # return 404 error page
@@ -239,10 +239,8 @@ def add_category():
                     }
                 mongo.db.categories.insert_one(category)
                 flash("Your category has successfully been addded!")
-                return render_template("categories.html")
-
-            return render_template(
-                "add_category.html")
+                return redirect(url_for("get_categories"))
+        return redirect(url_for("add_category"))
     else:
         return render_template('404.html'), 404
 
@@ -260,6 +258,7 @@ def edit_category(category_id):
                     "category_name": request.form.get("category_name"),
                     "category_icon": request.form.get("category_icon"),
                     }
+
                 mongo.db.categories.update(
                     {"_id": ObjectId(category_id)}, submit)
                 flash("Your category has been updated!")
@@ -276,7 +275,7 @@ def edit_category(category_id):
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    flash("_id")
+    flash("Category has been deleted")
     return redirect(url_for("get_categories"))
 
 

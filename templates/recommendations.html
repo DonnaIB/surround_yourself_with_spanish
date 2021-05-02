@@ -8,7 +8,7 @@
       <div class="col-md-4">
         <div class="card-deck">
           <div class="card mb-4 box-shadow {{ recommendation.category_icon }}">
-            <span class="material-icons icons-{{ recommendation.category_icon }}">
+            <span class="material-icons icons icons-{{ recommendation.category_icon }}">
               {{ recommendation.category_icon }}
             </span>
             <div class="card-body">
@@ -55,9 +55,9 @@
                 <a class="material-icons edit" type="button"
                   href="{{ url_for('edit_recommendation', recommendation_id=recommendation._id)}}">edit</a>
                 <a class="material-icons edit" type="button" data-toggle="modal"
-                  data-target="#exampleModal">delete</a>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                  data-target="#exampleModal{{ loop.index }}">delete</a>
+                <!-- Delete Verification Modal -->
+                <div class="modal fade" id="exampleModal{{ loop.index }}" tabindex="-1" role="dialog"
                   aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
