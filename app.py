@@ -41,7 +41,7 @@ def search():
     recommendations = list(
         mongo.db.recommendations.find({"$text": {"$search": query}}))
     return render_template(
-        "recommendations.html", recommendations=recommendations)
+        "recommendations.html", recommendations=recommendations, user="")
 
 
 # register a new user
