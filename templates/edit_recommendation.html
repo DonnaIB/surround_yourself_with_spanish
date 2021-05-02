@@ -26,14 +26,14 @@
             <!-- name -->
             <div class="form-group">
                 <label for="rec_name">Name</label>
-                <input type="text" class="form-control" id="rec_name" name="rec_name" value="{{ recommendation.rec_name }}" required pattern="^[-a-zA-Z0-9@\.+_]+$" oninvalid="this.setCustomValidity('Please enter a valid name')">
+                <input type="text" class="form-control" id="rec_name" name="rec_name" value="{{ recommendation.rec_name }}" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')">
 
             </div>
 
             <!-- author / director -->
             <div class="form-group">
                 <label for="rec_by">Author / Director</label>
-                <input type="text" class="form-control" name="rec_by" id="rec_by" value="{{ recommendation.rec_by }}" required pattern="^[-a-zA-Z0-9@\.+_]+$" oninvalid="this.setCustomValidity('Please enter a valid name')">
+                <input type="text" class="form-control" name="rec_by" id="rec_by" value="{{ recommendation.rec_by }}" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')">
             </div>
 
             <!-- description -->
