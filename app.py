@@ -253,6 +253,9 @@ def add_category():
                 return render_template(
                     "categories.html", categories=categories)
             return render_template("add_category.html")
+
+        return render_template('404.html'), 404
+        
     else:
         return render_template('404.html'), 404
 
