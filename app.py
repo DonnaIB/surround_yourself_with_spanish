@@ -214,7 +214,6 @@ def page_not_found(e):
 
 
 # render categories page
-@app.route("/")
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find())
@@ -248,11 +247,12 @@ def add_category():
                     "category_icon": request.form.get("category_icon")
                     }
                 mongo.db.categories.insert_one(category)
-                flash("Your category has successfully been addded!")
-                return redirect(url_for('get_categories'))
+                flash("Your category has successfully been added!")
 
-            return render_template(
-                "add_category.html")
+                categories = list(mongo.db.categories.find())
+                return render_template(
+                    "categories.html", categories=categories)
+            return render_template("add_category.html")
     else:
         return render_template('404.html'), 404
 
@@ -288,7 +288,9 @@ def edit_category(category_id):
 def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category has been deleted")
-    return redirect(url_for("get_categories"))
+    categories = list(mongo.db.categories.find())
+    return render_template(
+        "categories.html", categories=categories)
 
 
 if __name__ == "__main__":
