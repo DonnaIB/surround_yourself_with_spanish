@@ -41,7 +41,7 @@ def search():
     recommendations = list(
         mongo.db.recommendations.find({"$text": {"$search": query}}))
     if not recommendations:
-        flash('Sorry there are not recommendations that match your serach')
+        flash('Sorry there are no recommendations that match your serach')
     return render_template(
         "recommendations.html", recommendations=recommendations, user="")
 
