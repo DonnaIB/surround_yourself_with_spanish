@@ -230,18 +230,44 @@ When an admin is logged in a new nav item is added called Categories. Clicking o
 
 
 ### Functionality Test Cases
+Home:
+1. While logged out make sure that you can see all recommendations that are on the home page, and that each recommendations included the follow:
+	- Category Icon
+	- Name
+	- By
+	- Description
+	- Level
+	- Start rating
+	- Created by
+
+2. While logged out ensure that you can only see 'Home', 'Log In', and 'Register' in the navigation bar.
+3. While logged in, make sure all recommendations still have the fields detailed in step 1 and that any recommendation that was created by you, now has the pencil and bin icon visible.
+4. While logged in as an admin, make sure all recommendations still have the fields detailed in step 1 and that all recommendations now have the pencil and bin icon visible.
 
 Registration:
-
+1. Firstly complete the fields, click submit and ensure that the data is saved to the DB.
+2. Attempt to submit the form with empty fields and ensure that valitation errors are displayed.
+3. Attempt to submit the form without a correctly formatted email address and ensure validation error is displayed.
+5. Log in with valid data and ensure flash message is show to confirm that the data has been submitted.
+6. Log in with valid data and enusre you are taken to the My Recommendations page.
+7. Attempt to register with a username that you know already exists and ensure the error message is shown and you are redirected back to the register form.
+8. Attempt to register with an email that you know already exists and ensure the error message is shown and you are redirected back to the register form.
+9. Click on the 'Log In' link at the bottom of the registration form and ensure you are taken to the Log In screen.
+10. While logged out ensure that you can only see 'Home', 'Log In', and 'Register' in the navigation bar.
 
 Log In:
-
+1. Log in with valid credentials and ensure you are logged in and directed to your My Recommendations page and you can now see 'My Recommendations', 'Add Recommendations' and 'Log Out' in the navigation.
+2. Attempt to log in with invalid credentials and ensure that an error message is displayed on screen and you are redirected to the Log In screen.
+3. Click on the 'Register here' link at the bottom of the form and ensure you are taken to the Registration Screen.
 
 Log Out:
-
+1. While logged in, click on the 'Log Out' item in the navigation bar and ensure that you are logged out, that you see the success confirmation message and that you can now only see 'Home', 'Log In', and 'Register' in the navigation bar.
 
 My Recommendations:
-
+1. While logged in, navigate to the My Recommendations page and ensure you can see all the recommendations that you have added.
+2. While on the My Recommendations page ensure that the pencil and bin icons are visible in your recommendations.
+3. While on the My Recommendations page click on the pencil icon and ensure that the Edit Recommendation page opens.
+5. While on the My Recommendations page click on the bin icon and ensure that a pop up verification modal appears.
 
 Add Recommendation:
 
