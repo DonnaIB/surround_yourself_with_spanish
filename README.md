@@ -53,16 +53,17 @@ New Visitors:
 1. As a new visitor to the website, I want to understand the purpose of the site and how to interact with it.
 2. As a new visitor to the website, I want to find recommendations easily from fellow language learners without the need to register.
 3. As a new visitor to the website, I want to be able to register easily and add recommendations.
-4. As a new visitor to the website, I want to be able to filter recommendations by category and/or level.
 
 
-Returning (Registered) Visitor
-1. As a returning visitor to the website, I want to be able view recently added recommendations.
-2. As a logged in visitor to the website, I want to be able to easily view my recommendations.
-3. As a logged in visitor to the website, I want to be able to easily edit my recommendations.
-4. As a logged in visitor to the website, I want to be able to easily delete my recommendations.
-5. As a logged in visitor to the website, I want to be given visual confirmation when I edit or delete my recommendataions that the update has been successful.
+Logged In Visitor
+1. As a logged in visitor to the website, I want to be able to easily add a recommendation.
+2. As a logged in visitor to the website, I want to be able to easily edit my recommendations.
+3. As a logged in visitor to the website, I want to be able to easily delete my recommendations.
+4. As a logged in visitor to the website, I want to be given visual confirmation when I edit or delete my recommendataions that the update has been successful.
 
+Admin
+1. As an admin, I want to be able to edit or delete any recommendations to remove any inappropriate content.
+2. As an admin, I want to be able to easily add, edit or delete categories within in the site rather than having to access MongoDB.
 
 ### Design: 
 With this site, I wanted to ensure the design is simple, modern, fully responsive and has a connection to the [Dublin Intercambio](https://donnaib.github.io/dublin_intercambio/) site from my Ms1 project, this connection will be achieved by utilising the same color palette and logo throughout. As before the inspiration for this colour palette was to harness the Spanish connection and influence of the project.
@@ -80,10 +81,10 @@ I used Balsamiq to create detailed Wireframes for mobile and desktop site, for t
 ### Wireframes
 
 #### Mobile View
-[Mobile wireframe](static/wireframes/mobile)
+Mobile wireframes can be viewed here [Mobile wireframe](static/wireframes/mobile)
 
 #### Larger Screen View
-[Larger Screen wireframe](static/wireframes/desktop)
+Larger screen wireframes can be viewed here [Larger Screen wireframe](static/wireframes/desktop)
 
 As with my previous project I was very aware that working with yellow in the colour pallete can be problematic. However, as always I was careful to utilize the color in a way that added to the design of the site, but didn't not compromise the accessibility of the site.
 
@@ -96,7 +97,7 @@ All user generated content is stored in MongoDB. There are 4 collections for thi
 
 The recommendations colelctions has an association with the categories and level collections.
 
-[Database design](static/readme_images/db_diagram.png)
+![Database design](static/readme_images/db_diagram.png)
 
 
 ## Features
@@ -152,7 +153,8 @@ home page of the site.
 
 ### Possible Features to Implement in Future
 * Option to filter recommendations based on category or level.
-* Server side form validation
+* Password verification on registration form.
+* Server side form validation.
 
 
 ## Technologies Used for building this site
@@ -194,35 +196,37 @@ Screen shots of the HTML & CSS validator results can be viewed below, as you can
 4. In addition to testing with the inspector tool, real devices and validation tools, I also work through a series of test cases, to ensure that the site met the users stories and that any functionality that was added worked as intended.
 
 ### User Story Test Cases
-1. As a new visitor to the website, I want to understand the purpose of the site and how to interact with it.
 
+#### New Visitors
+1. As a new visitor to the website, I want to understand the purpose of the site and how to interact with it.
+The home page of the site features a title and an introduction with an explanation of the purpose of the site and how to interact with it.
 
 2. As a new visitor to the website, I want to find recommendations easily from fellow language learners without the need to register.
+There is no requirement to register to view recommendations. The recommendations are the main feature of the site and are visible from the home page for all visitors to view.
 
+3. As a new visitor to the website, I want to be able to register easily.
+The nagvigation is clear and has a item named 'Register', when a user clicks on this nav item they are brought to a simple form, with clearly lablled fields, placehold text and a clearly marked 'Register' button.
 
-3. As a new visitor to the website, I want to be able to register easily and add recommendations.
+#### Logged In Visitors
 
+1.   As a logged in visitor to the website, I want to be able to easily add a recommendation..
+When a user logs into the site there are now options available to them in the navigation bar. When a users click 'Add Recommendation' in the navigation bar, they are taken to the add_recommedations page. This page displays a form to the user to enable them to add a recommendation The user first selects a category from a dropdown list, then enter the details of their recommendation, and finally selected a level from the options in the dropdown and chose a rating from 1-5. The user then clicks submit and their recommendation is saved in MongoDB and visible in the site.
 
-4. As a new visitor to the website, I want to be able to filter recommendations by category and/or level.
+2. As a logged in visitor to the website, I want to be able to easily edit my recommendations.
+When a user logs into the site there are taken to their recommendations, from there they can easily view, or select to edit or delete their recommendations. If they click on the pencil icon within a recommendation the are taken to a page that consists of a form that is prepopulated with the orginal recommendation data. The user can then then edit their recommendation and click the edit button to update the recommendation or there is the option to click cancel if they have changed their mind and no longer want to make any edits.
 
+3. As a logged in visitor to the website, I want to be able to easily delete my recommendations.
+When a user logs into the site there are taken to their recommendations, from there they can easily view, or select to edit or delete their recommendations. If they click on the bin icon within a recommendation a pop up modal appears asking the user to verify that they want to delete their recomendation. If the users click the delete button on the modal, their recommendation is delete from the database and no longer appears in the site.
 
-5.  As a returning visitor to the website, I want to be able view recently added recommendations.
+4. As a logged in visitor to the website, I want to be given visual confirmation when I edit or delete my recommendataions that the update has been successful.
+When a user is logged in and and adds, edits or deletes a recommendation a message is flashed to confirm that the action has been carried out successfully.
 
+#### Admin
+1. As an admin, I want to be able to edit or delete any recommendations to remove any inappropriate content.
+When an admin is logged in, the edit and delete icons are available to them on all recomentations allowing then to edit or delete any inappropriate recommendations.
 
-6. As a returning visitor to the website, I want to be able to log in easily and view my recommendations.
-
-
-7. As a returning visitor to the website, I want to be able to log in easily and edit my recommendations.
-
-
-8. As a returning visitor to the website, I want to be able to log in easily and delete my recommendations.
-
-
-9. As a returning visitor to the website, I want to be given visual confirmation when I edit or delete my recommendataions that the update has been successful.
-
-
-
-
+2. As an admin, I want to be able to easily add, edit or delete categories within in the site rather than having to access MongoDB.
+When an admin is logged in a new nav item is added called Categories. Clicking on this page allows an admin to view exisiting catgories, as well as edit or delete them. Additionally there is an add category button allowing then to add a new category on the front end.
 
 
 ### Functionality Test Cases
@@ -267,7 +271,7 @@ In addition to all the above testing I also checked my site with accessibility t
 
 
 
-## Deployment. UPDATE TO HEROKU
+## Deployment UPDATE TO HEROKU
 
 ### Requirements
 
