@@ -34,6 +34,11 @@ def get_recommendations():
            "recommendations.html", recommendations=recommendations, user="")  
 
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
 # search database
 @app.route("/search", methods=["GET", "POST"])
 def search():

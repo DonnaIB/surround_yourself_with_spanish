@@ -33,6 +33,32 @@ main {
     text-decoration: none;
 }
 
+/* Intro */
+
+.intro {
+    text-align: center;
+    color: #AA151B;
+    font-weight: 600;
+    padding-bottom: 15px;
+}
+
+h2.intro {
+    color: black;
+    font-weight: 400;
+    font-size: large;
+}
+
+/* Intro */
+
+p {
+    text-align: center;
+    padding-top: 10px;
+}
+
+a {
+    color:#058E6E;
+}
+
 /* profile */
 
 .profile-text {
