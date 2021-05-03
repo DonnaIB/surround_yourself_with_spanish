@@ -17,8 +17,7 @@ main {
 /* Search */
 
 .search {
-    margin: auto;
-    max-width: 50%;
+    text-align: right;
 }
 
 .search-addon {
@@ -245,6 +244,10 @@ footer {
             font-size: 32px;
         }
 
+        .search {
+            text-align: center;;
+        }
+
   }
 
   @media screen and (max-width: 350px) {
@@ -257,10 +260,6 @@ footer {
         -ms-flex-align: stretch;
         align-items: stretch;
         width: 100%;
-    }
-
-    .search {
-        margin: auto;
     }
 }
 

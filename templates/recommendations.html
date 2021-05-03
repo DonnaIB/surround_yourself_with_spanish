@@ -1,17 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="{{ url_for('search') }}" method="post">
-  <div class="input-group rounded search">
+<form action="{{ url_for('search') }}" class="search" method="post">
+  <div class="rounded search">
     <input type="text" name="query" id="query" minlength="3" class="validate" required class="form-control rounded"
       placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-    <span class="input-group-text border-0 search-addon" id="search-addon">
-      <a class="material-icons search-icon reset" href="{{ url_for('get_recommendations') }}">
-        restart_alt
-      </a>
-    </span>
   </div>
+  <a class="btn btn-primary" href="{{ url_for('get_recommendations') }}">
+    Reset
+  </a>
 </form>
+
 
 <div class="album py-5">
   <div class="container">
@@ -27,8 +26,8 @@
               <p class="card-text">Name: {{ recommendation.rec_name }}</p>
               <p class="card-text">By: {{ recommendation.rec_by }}</p>
               <p class="card-text">
-                <small><a data-toggle="collapse" href="#collapseExample{{ loop.index }}" class="description" role="button"
-                    aria-expanded="false" aria-controls="collapseExample">
+                <small><a data-toggle="collapse" href="#collapseExample{{ loop.index }}" class="description"
+                    role="button" aria-expanded="false" aria-controls="collapseExample">
                     Read description
                   </a></small>
                 <p class="collapse" id="collapseExample{{ loop.index }}">
