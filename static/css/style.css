@@ -203,6 +203,15 @@ footer {
     padding-top: 15px;
   }
 
+  footer a {
+    color: white;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+      color: #058E6E;
+  }
+
 /* categories */
 
 .category-name {
