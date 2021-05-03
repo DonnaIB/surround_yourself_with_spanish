@@ -80,12 +80,24 @@ I used Balsamiq to create detailed Wireframes for mobile and desktop site, for t
 ### Wireframes
 
 #### Mobile View
-![Mobile wireframe](static/wireframes/mobile)
+[Mobile wireframe](static/wireframes/mobile)
 
 #### Larger Screen View
-![Larger Screen wireframe](static/wireframes/desktop)
+[Larger Screen wireframe](static/wireframes/desktop)
 
 As with my previous project I was very aware that working with yellow in the colour pallete can be problematic. However, as always I was careful to utilize the color in a way that added to the design of the site, but didn't not compromise the accessibility of the site.
+
+## Database Design
+All user generated content is stored in MongoDB. There are 4 collections for this site.
+1. users
+2. categories
+3. level
+4. recommendations
+
+The recommendations colelctions has an association with the categories and level collections.
+
+[Database design](static/readme_images/db_diagram.png)
+
 
 ## Features
 
@@ -106,28 +118,28 @@ The Log in page allows registered user to log in to their account in order to vi
 
 #### Logged In Users
 
-##### My Recommendations
+###### My Recommendations
 This page is individual to the user and displays all of their recommendations in one place, allowing a user to easily find their recommendations should they wish to edit or delete one.
 
-##### Add Recommendation
+###### Add Recommendation
 This page displays a form to the user to enable them to add a recommendation. The user first selects a category from a dropdown list, then enter the details of their recommendation, and finally selected a level from the options in the dropdown and chose a rating from 1-5. The user then clicks submit and their recommendation is saved in MongoDB and visible in the site.
 
 This page is not accessible to user that are not logged in.
 
-##### Edit Recommendation
+###### Edit Recommendation
 This page displays a form to the user to enable them to edit one of their recommendations. The same form that is used to add recommmendations is shown again and is prefilled with the original information. The user can then edit their recommendation and click the edit button to update their recommendation or there is the option to click cancel if they have changed their mind and no longer want to make any edits.
 
 This page is specific to the recommendation that has been seleted to edit and is only avaiable to the created of the recommendation when they are logged in, or to admin.
 
 #### Admin Only
 
-##### Categories
+###### Categories
 This is an admin only area and allows an admin to create, edit and deleted categories on the front end. This page displays a list of categories available to users, the categories have an edit and delete icons to allow an admin to either make edits to a category or to delete one. The page also has an 'Add Category' button to allow an admin to create a new category. 
 
-##### Add Category
+###### Add Category
 This is an admin only area and allows an admin to create a new category.  This page consists of a form that asks the admin to provide the name of the new category and the name of the material design icon that should be used for that icon in the recommendations card. Once submited this is added to the Categories collection in MondgoDB and is available to users to select from the dropdown menue when they add a new recommendation.
 
-##### Edit Category
+###### Edit Category
 This is an admin only area and allows an admin to edit a new category.  This page consists of a form that is prepopulated with the orginal information about that category. The admin can then edit the category and click the edit button to update the category or there is the option to click cancel if they have changed their mind and no longer want to make any edits.
 
 Once submited this is added to the Categories collection in MondgoDB and is available to users to select from the dropdown menu when they add a new recommendation.
@@ -139,18 +151,26 @@ home page of the site.
 * A responsive, collapsible navigation bar, allowing users to easily navigate the site on any device.
 
 ### Possible Features to Implement in Future
+* Option to filter recommendations based on category or level.
+* Server side form validation
 
 
 ## Technologies Used for building this site
-- This project uses HTML, CSS and JavaScript programming languages.
+- This project uses HTML, CSS, Javascript & Python programming languages.
+- This project uses Flask and the following Flash extentions - please see requirements.txt for full list of extentions. 
+- This project uses MongoDB for database functionality.
+- This project is deployed using Heroku.
+
+
+### Tools, Libraries, 
 - Gitpod was used an the IDE for building the site.
 - **Bootstrap4** was used to assist with the structure, responsiveness and browser compatibility of the site. 
 - **Material Design** was used for the icons in the site.
-- **Google fonts** was used to style the website fonts.
 - **jQuery** to reference Javascript needed for the responsive navbar.
 - **Popper.js** reference Javascript needed for the responsive navbar.
-- **Google Maps** to create map and markers on contact page.
-- **EmailJS** to connect the contact form to website owners Gmail account.
+- **Balsamiq** - was used for creating my wireframes.
+ - **favicon.io** - was used for creating favicon.
+- **Am I Responsive?** - was used for creating image at start of README.
 
 ## Testing
 
@@ -181,6 +201,7 @@ Screen shots of the HTML & CSS validator results can be viewed below, as you can
 
 
 3. As a new visitor to the website, I want to be able to register easily and add recommendations.
+
 
 4. As a new visitor to the website, I want to be able to filter recommendations by category and/or level.
 
