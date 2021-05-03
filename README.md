@@ -56,7 +56,7 @@ New Visitors:
 4. As a new visitor to the website, I want to be able to filter recommendations by category and/or level.
 
 
-Returning(Registered) Visitor
+Returning (Registered) Visitor
 1. As a returning visitor to the website, I want to be able view recently added recommendations.
 2. As a logged in visitor to the website, I want to be able to easily view my recommendations.
 3. As a logged in visitor to the website, I want to be able to easily edit my recommendations.
@@ -80,19 +80,57 @@ I used Balsamiq to create detailed Wireframes for mobile and desktop site, for t
 ### Wireframes
 
 #### Mobile View
-![Mobile wireframe](documentation/wireframes/xxxxxxxxxxx.png)
+![Mobile wireframe](static/wireframes/mobile)
 
 #### Larger Screen View
-![Larger Screen wireframe](documentation/wireframes/xxxxxxxxxxxxxx.png)
+![Larger Screen wireframe](static/wireframes/desktop)
 
 As with my previous project I was very aware that working with yellow in the colour pallete can be problematic. However, as always I was careful to utilize the color in a way that added to the design of the site, but didn't not compromise the accessibility of the site.
 
 ## Features
 
-### Pages 
+### Pages
 
-##### Home
+#### All Users
 
+###### Home
+The home page introduced users to the site and allows them to browse all recommendations made by registered users. Each recommendation features features an icon to distinguish between the different categories, the name of the book, movie, series, etc., the name of the author, director, etc., a description, an indication of the level of Spanish that the recommendation is aimed at, a rating from 1-5 and finally the username of the person who created the recommendation.
+
+If a registered user is logged in, they will also see an edit and delete icon for any recommendation they have created.  These icons are visble for all recommendations if the user is an admin.
+
+###### Register
+The registration page allows a user to register an account.  To register a user is required provide a username, email and password. Validation has been added to form.  The Registration page also provided a link to the Log In page if a user has already registered and simply needs to log in.
+
+###### Log In
+The Log in page allows registered user to log in to their account in order to view their own recommendations, add a new recommendation, edit or delete one of their own recommendations. The Log In page also provides a link to the Registration page if a user hasn't yet registered.
+
+#### Logged In Users
+
+##### My Recommendations
+This page is individual to the user and displays all of their recommendations in one place, allowing a user to easily find their recommendations should they wish to edit or delete one.
+
+##### Add Recommendation
+This page displays a form to the user to enable them to add a recommendation. The user first selects a category from a dropdown list, then enter the details of their recommendation, and finally selected a level from the options in the dropdown and chose a rating from 1-5. The user then clicks submit and their recommendation is saved in MongoDB and visible in the site.
+
+This page is not accessible to user that are not logged in.
+
+##### Edit Recommendation
+This page displays a form to the user to enable them to edit one of their recommendations. The same form that is used to add recommmendations is shown again and is prefilled with the original information. The user can then edit their recommendation and click the edit button to update their recommendation or there is the option to click cancel if they have changed their mind and no longer want to make any edits.
+
+This page is specific to the recommendation that has been seleted to edit and is only avaiable to the created of the recommendation when they are logged in, or to admin.
+
+#### Admin Only
+
+##### Categories
+This is an admin only area and allows an admin to create, edit and deleted categories on the front end. This page displays a list of categories available to users, the categories have an edit and delete icons to allow an admin to either make edits to a category or to delete one. The page also has an 'Add Category' button to allow an admin to create a new category. 
+
+##### Add Category
+This is an admin only area and allows an admin to create a new category.  This page consists of a form that asks the admin to provide the name of the new category and the name of the material design icon that should be used for that icon in the recommendations card. Once submited this is added to the Categories collection in MondgoDB and is available to users to select from the dropdown menue when they add a new recommendation.
+
+##### Edit Category
+This is an admin only area and allows an admin to edit a new category.  This page consists of a form that is prepopulated with the orginal information about that category. The admin can then edit the category and click the edit button to update the category or there is the option to click cancel if they have changed their mind and no longer want to make any edits.
+
+Once submited this is added to the Categories collection in MondgoDB and is available to users to select from the dropdown menu when they add a new recommendation.
 
 ### Site Features 
 Every page on this site also incorporates the following features:
