@@ -32,11 +32,11 @@
               <p class="card-text">Name: {{ my_recommendation.rec_name }}</p>
               <p class="card-text">By: {{ my_recommendation.rec_by }}</p>
               <p class="card-text">
-                <small><a data-toggle="collapse" href="#collapseExample" class="description" role="button"
+                <small><a data-toggle="collapse" href="#collapseExample{{ loop.index }}" class="description" role="button"
                     aria-expanded="false" aria-controls="collapseExample">
                     Read description
                   </a></small>
-                <p class="collapse" id="collapseExample">
+                <p class="collapse" id="collapseExample{{ loop.index }}">
                   {{ my_recommendation.rec_description}}
                 </p>
 
