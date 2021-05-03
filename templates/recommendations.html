@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Search -->
 <form action="{{ url_for('search') }}" class="search" method="post">
   <div class="rounded search">
     <input type="text" name="query" id="query" minlength="3" class="validate" required class="form-control rounded"
@@ -11,7 +12,14 @@
   </a>
 </form>
 
+<!-- Introduction -->
+<h1 class="intro">Surround Yourself with Spanish</h1>
+<h2 class="intro">Check out our recommendations to surround yourself with Spanish and take your language skills to the next level.
+</h2>
 
+
+
+<!-- Recommendations -->
 <div class="album py-5">
   <div class="container">
     <div class="row">
@@ -93,7 +101,7 @@
                 <a class="material-icons edit" type="button"
                   href="{{ url_for('edit_recommendation', recommendation_id=recommendation._id)}}">edit</a>
                 <a class="material-icons edit" type="button" data-toggle="modal" data-target="#exampleModal">delete</a>
-                <!-- Modal -->
+                <!-- Delete Verification Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                   aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">

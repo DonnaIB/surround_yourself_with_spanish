@@ -34,19 +34,21 @@ def get_recommendations():
            "recommendations.html", recommendations=recommendations, user="")  
 
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-
 # search database
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     recommendations = list(
         mongo.db.recommendations.find({"$text": {"$search": query}}))
+    if not recommendations:
+        flash('Sorry there are not recommendations that match your serach')
     return render_template(
         "recommendations.html", recommendations=recommendations, user="")
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 
 # register a new user
