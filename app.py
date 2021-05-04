@@ -4,7 +4,6 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
-from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -23,7 +22,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_recommendations")
 def get_recommendations():
-    recommendations = list(mongo.db.recommendations.find())
+    recommendations = list(mongo.db.recommendations.find() .sort("_id", -1))
     if "user" in session:
         user = mongo.db.users.find_one(
            {"username": session["user"]})
@@ -122,7 +121,7 @@ def profile(username):
         username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
         my_recommendations = list(mongo.db.recommendations.find(
-            {"created_by": session["user"]}).sort("time_created"))
+            {"created_by": session["user"]}).sort("_id", -1))
 
         return render_template(
             "profile.html", 
@@ -144,7 +143,6 @@ def logout():
 # Lets a user add a new recommendation
 @app.route("/add_recommendation", methods=["GET", "POST"])
 def add_recommendation():
-    now = datetime.now()
     if "user" in session:
         if request.method == "POST":
             selected_category = mongo.db.categories.find_one(
@@ -158,7 +156,6 @@ def add_recommendation():
                 "level": request.form.get("level"),
                 "rec_rating": request.form.get("rec_rating"),
                 "created_by": session["user"],
-                "time_created": now.strftime("%d/%m/%Y, %H:%M:%S")
                 }
             mongo.db.recommendations.insert_one(recommendation)
             flash("Your recommendation has successfully been addded!")
@@ -175,7 +172,6 @@ def add_recommendation():
 # Lets a user edit a recommendation
 @app.route("/edit_recommendation/<recommendation_id>", methods=["GET", "POST"])
 def edit_recommendation(recommendation_id):
-    now = datetime.now()
     if "user" in session:
         if request.method == "POST":
             selected_category = mongo.db.categories.find_one(
@@ -189,7 +185,6 @@ def edit_recommendation(recommendation_id):
                 "level": request.form.get("level"),
                 "rec_rating": request.form.get("rec_rating"),
                 "created_by": session["user"],
-                "time_created": now.strftime("%d/%m/%Y, %H:%M:%S")
             }
             mongo.db.recommendations.update(
                 {"_id": ObjectId(recommendation_id)}, submit)
