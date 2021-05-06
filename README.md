@@ -240,9 +240,15 @@ Home:
 	- Start rating
 	- Created by
 
-2. While logged out ensure that you can only see 'Home', 'Log In', and 'Register' in the navigation bar.
+2. While logged out ensure that you can only see 'Home', 'About', 'Log In', and 'Register' in the navigation bar.
 3. While logged in, make sure all recommendations still have the fields detailed in step 1 and that any recommendation that was created by you, now has the pencil and bin icon visible.
 4. While logged in as an admin, make sure all recommendations still have the fields detailed in step 1 and that all recommendations now have the pencil and bin icon visible.
+
+About: 
+1. While logged out ensure you can access this page and the text loads.
+2. Log in and ensure you can access this page and that the text loads.
+3. Click the the external link to Dublin Intercambioach on the page and ensure that it opens in a new tab.
+4. Click the 2 internal links in the last paragraph and ensure you are redirect to the corresponding page.
 
 Registration:
 1. Firstly complete the fields, click submit and ensure that the data is saved to the DB.
@@ -268,6 +274,7 @@ My Recommendations:
 2. While on the My Recommendations page ensure that the pencil and bin icons are visible in your recommendations.
 3. While on the My Recommendations page click on the pencil icon and ensure that the Edit Recommendation page opens.
 5. While on the My Recommendations page click on the bin icon and ensure that a pop up verification modal appears.
+6. Copy URL for My Recommendations page, then log out, paste the URL into the browser and try to access the page while logged out. Ensure you get a 404 error page.
 
 Add Recommendation:
 
