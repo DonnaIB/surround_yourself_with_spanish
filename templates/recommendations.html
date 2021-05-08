@@ -14,10 +14,28 @@
 
 <!-- Introduction -->
 <h1 class="intro">Surround Yourself with Spanish</h1>
-<h2 class="intro">Check out our recommendations to surround yourself with Spanish and take your language skills to the next level.
+<h2 class="intro">Check out our recommendations to surround yourself with Spanish and take your language skills to the
+  next level.
 </h2>
 
+<!-- Filter -->
+<p>
+  <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Filter
+  </a>
+</p>
 
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <div class="dropdown filter">
+      <a class="btn btn-primary" href="{{ url_for('get_beginner') }}" id="level">Beginner</a>
+      <a class="btn btn-primary" href="{{ url_for('get_intermediate') }}" id="level">Intermediate</a>
+      <a class="btn btn-primary" href="{{ url_for('get_upperintermediate') }}" id="level">Upper Intermediate</a>
+      <a class="btn btn-primary" href="{{ url_for('get_advanced') }}" id="level">Advanced</a>
+      <a class="btn btn-primary" href="{{ url_for('get_recommendations') }}" id="level">Clear filter</a>
+    </div>
+  </div>
+</div>
 
 <!-- Recommendations -->
 <div class="album py-5">

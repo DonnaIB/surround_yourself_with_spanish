@@ -23,14 +23,22 @@ mongo = PyMongo(app)
 @app.route("/get_recommendations")
 def get_recommendations():
     recommendations = list(mongo.db.recommendations.find() .sort("_id", -1))
+    categories = list(mongo.db.categories.find())
+    levels = list(mongo.db.level.find())
     if "user" in session:
         user = mongo.db.users.find_one(
            {"username": session["user"]})
         return render_template(
-           "recommendations.html", recommendations=recommendations, user=user)  
+           "recommendations.html", 
+           recommendations=recommendations, 
+           categories=categories, 
+           levels=levels, user=user)  
     else:
         return render_template(
-           "recommendations.html", recommendations=recommendations, user="")  
+           "recommendations.html", 
+           recommendations=recommendations, 
+           categories=categories, 
+           levels=levels, user="")  
 
 
 # search database
@@ -40,9 +48,53 @@ def search():
     recommendations = list(
         mongo.db.recommendations.find({"$text": {"$search": query}}))
     if not recommendations:
-        flash('Sorry there are no recommendations that match your serach')
+        flash('Sorry there are no recommendations that match your search')
     return render_template(
         "recommendations.html", recommendations=recommendations, user="")
+
+
+# filter recommendations
+@app.route("/get_beginner")
+def get_beginner():
+    recommendations = list(mongo.db.recommendations.find({"level": "Beginner"}))
+    if not recommendations:
+        flash('Sorry there are no recommendations that match your filter')
+    return render_template(
+        "recommendations.html",
+        recommendations=recommendations, user="")
+
+
+@app.route("/get_intermediate")
+def get_intermediate():
+    recommendations = list(mongo.db.recommendations.find(
+        {"level": "Intermediate"}))
+    if not recommendations:
+        flash('Sorry there are no recommendations that match your filter')
+    return render_template(
+        "recommendations.html",
+        recommendations=recommendations, user="")
+
+
+@app.route("/get_upperintermediate")
+def get_upperintermediate():
+    recommendations = list(mongo.db.recommendations.find(
+        {"level": "Upper Intermediate"}))
+    if not recommendations:
+        flash('Sorry there are no recommendations that match your filter')
+    return render_template(
+        "recommendations.html",
+        recommendations=recommendations, user="")
+
+
+@app.route("/get_advanced")
+def get_advanced():
+    recommendations = list(mongo.db.recommendations.find(
+        {"level": "Advanced"}))
+    if not recommendations:
+        flash('Sorry there are no recommendations that match your search')
+    return render_template(
+        "recommendations.html",
+        recommendations=recommendations, user="")
 
 
 @app.route("/about")

@@ -215,6 +215,10 @@ a {
     align-items: center;
 }
 
+.filter {
+    margin: auto;
+}
+
 /* footer */
 
 footer {
