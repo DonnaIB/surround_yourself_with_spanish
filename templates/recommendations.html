@@ -4,9 +4,12 @@
 <!-- Search -->
 <form action="{{ url_for('search') }}" class="search" method="post">
   <div class="rounded search">
-    <input type="text" name="query" id="query" minlength="3" class="validate" required class="form-control rounded"
+    <input type="text" name="query" id="query" minlength="3" required class="validate" form-control rounded 
       placeholder="Search" aria-label="Search"/>
   </div>
+  <button type="submit" class="btn btn-primary" href="{{ url_for('get_recommendations') }}">
+    Search
+  </button>
   <a class="btn btn-primary" href="{{ url_for('get_recommendations') }}">
     Reset
   </a>
