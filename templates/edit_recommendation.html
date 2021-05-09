@@ -12,28 +12,31 @@
             <div class="form-group">
                 <label for="category_name">Category</label>
                 <select class="form-control" id="category_name" name="category_name" required>
-                    <option value="" selected>Choose category</option>
+                    <option value="">Choose category</option>
                     {% for category in categories %}
                     {% if category.category_name == recommendation.category_name %}
-                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                    <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
                     {% else %}
-                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                     {% endif %}
-                {% endfor %}
+                    {% endfor %}
                 </select>
-              </div>
+            </div>
 
             <!-- name -->
             <div class="form-group">
                 <label for="rec_name">Name</label>
-                <input type="text" class="form-control" id="rec_name" name="rec_name" value="{{ recommendation.rec_name }}" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')">
+                <input type="text" class="form-control" id="rec_name" name="rec_name"
+                    value="{{ recommendation.rec_name }}" required pattern=".*\S+.*"
+                    oninvalid="this.setCustomValidity('Please enter a valid name')">
 
             </div>
 
             <!-- author / director -->
             <div class="form-group">
                 <label for="rec_by">Author / Director</label>
-                <input type="text" class="form-control" name="rec_by" id="rec_by" value="{{ recommendation.rec_by }}" required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')">
+                <input type="text" class="form-control" name="rec_by" id="rec_by" value="{{ recommendation.rec_by }}"
+                    required pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')">
             </div>
 
             <!-- description -->
@@ -46,14 +49,16 @@
 
             <!-- level -->
             <div class="form-group">
-                <label for="level">Level</label><small> (What level of Spanish speaker would you recommend this for?)</small>
+                <label for="level">Level</label><small> (What level of Spanish speaker would you recommend this
+                    for?)</small>
                 <select class="form-control" id="level" name="level" required>
-                    <option value="" disabled selected>Choose level</option>
+                    <option value="" disabled>Choose level</option>
                     {% for level in level %}
                     {% if level.level == recommendation.level %}
-                        <option value="{{ level.level }}"  selected placeholder="Choose category">{{ level.level }}</option>
+                    <option value="{{ level.level }}" selected>{{ level.level }}</option>
+                    {% else %}
+                    <option value="{{ level.level }}">{{ level.level }}</option>
                     {% endif %}
-                        <option value="{{ level.level }}" placeholder="Choose category">{{ level.level }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -61,116 +66,122 @@
             <!-- rating -->
             <div class="form-group" data-toggle="validator">
                 <div>
-                <label for="rec_description">Rating out of 5: </label>
+                    <label for="rec_description">Rating out of 5: </label>
                 </div>
                 {% if recommendation.rec_rating == "1" %}
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1" checked required>
-                    <label class="form-check-label" for="rec_rating">1</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="1" checked required>
+                    <label class="form-check-label">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="2" required>
-                    <label class="form-check-label" for="rec_rating">2</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="2" required>
+                    <label class="form-check-label">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="3" required>
-                    <label class="form-check-label" for="rec_rating">3</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="3" required>
+                    <label class="form-check-label">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="4" required>
-                    <label class="form-check-label" for="rec_rating">4</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="4" required>
+                    <label class="form-check-label">4</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="5" required>
-                    <label class="form-check-label" for="rec_rating">5</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="5" required>
+                    <label class="form-check-label">5</label>
+                </div>
                 {% elif recommendation.rec_rating == "2"  %}
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1" required>
-                    <label class="form-check-label" for="rec_rating">1</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="1" required>
+                    <label class="form-check-label">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="2" checked required>
-                    <label class="form-check-label" for="rec_rating">2</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="2" checked required>
+                    <label class="form-check-label">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="3" required>
-                    <label class="form-check-label" for="rec_rating">3</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="3" required>
+                    <label class="form-check-label">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="4" required>
-                    <label class="form-check-label" for="rec_rating">4</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="4" required>
+                    <label class="form-check-label">4</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="5" required>
-                    <label class="form-check-label" for="rec_rating">5</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="5" required>
+                    <label class="form-check-label">5</label>
+                </div>
                 {% elif recommendation.rec_rating == "3"  %}
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1" required>
-                    <label class="form-check-label" for="rec_rating">1</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="1" required>
+                    <label class="form-check-label">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="2" required>
-                    <label class="form-check-label" for="rec_rating">2</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="2" required>
+                    <label class="form-check-label">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="3" checked required>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="3" checked required>
                     <label class="form-check-label" for="rec_rating">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="4" required>
-                    <label class="form-check-label" for="rec_rating">4</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="4" required>
+                    <label class="form-check-label">4</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="5" required>
-                    <label class="form-check-label" for="rec_rating">5</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="5" required>
+                    <label class="form-check-label">5</label>
+                </div>
                 {% elif recommendation.rec_rating == "4"  %}
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1" required>
-                    <label class="form-check-label" for="rec_rating">1</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="1" required>
+                    <label class="form-check-label">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="2" required>
-                    <label class="form-check-label" for="rec_rating">2</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="2" required>
+                    <label class="form-check-label">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="3" required>
-                    <label class="form-check-label" for="rec_rating">3</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="3" required>
+                    <label class="form-check-label">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="4" checked required>
-                    <label class="form-check-label" for="rec_rating">4</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="4" checked
+                        required>
+                    <label class="form-check-label">4</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="5" required>
-                    <label class="form-check-label" for="rec_rating">5</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="5" required>
+                    <label class="form-check-label">5</label>
+                </div>
                 {% else %}
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="1" required>
-                    <label class="form-check-label" for="rec_rating">1</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="1" required>
+                    <label class="form-check-label">1</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="2" required>
-                    <label class="form-check-label" for="rec_rating">2</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="2" required>
+                    <label class="form-check-label">2</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="3" required>
-                    <label class="form-check-label" for="rec_rating">3</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="3" required>
+                    <label class="form-check-label">3</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="4" required>
-                    <label class="form-check-label" for="rec_rating">4</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="4" required>
+                    <label class="form-check-label">4</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="rec_rating" id="rec_rating" value="5" checked required>
-                    <label class="form-check-label" for="rec_rating">5</label>
+                    <input class="form-check-input" type="radio" name="rec_rating" value="5" checked
+                        required>
+                    <label class="form-check-label">5</label>
                 </div>
                 {% endif %}
-            </div>  
+            </div>
 
-            <!-- buttons -->
+        <!-- buttons -->
             <div>
-            <button type="submit" class="btn btn-primary">Edit</button>
-            <a href="{{ url_for('get_recommendations') }}" class="btn btn-primary cancel">Cancel</a>
+                <button type="submit" class="btn btn-primary">Edit</button>
+                <a href="{{ url_for('get_recommendations') }}" class="btn btn-primary cancel">Cancel</a>
             </div>
         </form>
     </div>

@@ -2,9 +2,9 @@
   <a href="">Surround Yourself with Spanish</a>
 </h1>
 
-![Surround Yourself with Spanish](documentation/additional_images/xxxxxx.png)
+![Surround Yourself with Spanish](static/readme_images/website_image.png)
 
-[Surround Yourself with Spanish - Live site](https:xxxxx)
+[Surround Yourself with Spanish - Live site](http://surround-yourself-with-spanish.herokuapp.com/get_recommendations)
 
 
 *Note: This is an extension to the fictional organisation (Dublin Intercambio) created for my earlier Code Institute milestone projects.*
@@ -182,14 +182,10 @@ I tested the site in the following ways:
 
 2. I also tested my code using the validator tools for both my HTML [W3C HTML Validator Tool](https://validator.w3.org/), CSS [W3C CSS Validator Tool](https://validator.w3.org/).
 
-Screen shots of the HTML & CSS validator results can be viewed below, as you can see there were no errors detected.
+Screen shots of the HTML & CSS validator results can be viewed by clicking on the link below, as you will see there were no errors detected.
 
-![HTML Validation Report - ](xx)
-![HTML Validation Report - ](xx)
-![HTML Validation Report - ](xx)
-![HTML Validation Report - ](xx)
-![HTML Validation Report - ](xx)
-![CSS Validation Report](xx)
+[HTML Validation Reports](static/readme_images/testing)
+
 
 3. All links were tested to ensure there were no broken links and that all links to external sites open in a new tab.
 

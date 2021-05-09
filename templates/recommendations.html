@@ -23,12 +23,12 @@
 
 <!-- Filter -->
 <p>
-  <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+  <a data-toggle="collapse" href="#filter" role="button" aria-expanded="false" aria-controls="collapseExample">
     Filter
   </a>
 </p>
 
-<div class="collapse" id="collapseExample">
+<div class="collapse" id="filter">
   <div class="card card-body">
     <div class="dropdown filter">
       <a class="btn btn-primary" href="{{ url_for('get_beginner') }}">Beginner</a>
@@ -92,18 +92,17 @@
 
                 <small class="text-muted created-by">Created by: {{ recommendation.created_by}}</small>
                 {% if session.user|lower == recommendation.created_by|lower %}
-                <a class="material-icons edit" type="button"
+                <a class="material-icons edit"
                   href="{{ url_for('edit_recommendation', recommendation_id=recommendation._id)}}">edit</a>
-                <a class="material-icons edit" type="button" data-toggle="modal"
+                <a class="material-icons edit" data-toggle="modal"
                   data-target="#exampleModal{{ loop.index }}">delete</a>
                 <!-- Delete Verification Modal -->
-                <div class="modal fade" id="exampleModal{{ loop.index }}" tabindex="-1" role="dialog"
-                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal{{ loop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete Recommendation?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="exampleModalLabel{{ loop.index }}">Delete Recommendation?</h5>
+                        <button class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
@@ -111,25 +110,24 @@
                         Are you sure you want to delete this recommendation?
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">Cancel</button>
-                        <a type="button" class="btn btn-primary delete"
+                        <button  class="btn btn-secondary cancel" data-dismiss="modal">Cancel</button>
+                        <a  class="btn btn-primary delete"
                           href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id)}}">Delete</a>
                       </div>
                     </div>
                   </div>
                 </div>
                 {% elif user.is_admin %}
-                <a class="material-icons edit" type="button"
+                <a class="material-icons edit"
                   href="{{ url_for('edit_recommendation', recommendation_id=recommendation._id)}}">edit</a>
-                <a class="material-icons edit" type="button" data-toggle="modal" data-target="#exampleModal">delete</a>
+                <a class="material-icons edit" data-toggle="modal" data-target="#exampleModal{{ loop.index }}">delete</a>
                 <!-- Delete Verification Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal{{ loop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete Recommendation?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="exampleModalLabel{{ loop.index }}">Delete Recommendation?</h5>
+                        <button class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
@@ -137,8 +135,8 @@
                         Are you sure you want to delete this recommendation?
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">Cancel</button>
-                        <a type="button" class="btn btn-primary delete"
+                        <button  class="btn btn-secondary cancel" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary delete"
                           href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id)}}">Delete</a>
                       </div>
                     </div>
