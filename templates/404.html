@@ -1,6 +1,19 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Resource for learning Spanish" />
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='images/favicon-16x16.png') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    <title>Surround Yourself with Spanish</title>
+</head>
 
     <!--404 message-->
     <div class="row error">
@@ -18,4 +31,24 @@
         </div>
     </div>
 
-{% endblock %}
+          <!-- Footer -->
+
+          <footer class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <p>
+                        <small>Surround Yourself with Spanish - Copyright &copy; | Code Institue project | 
+                            <a href="https://donnaib.github.io/spanish_quiz/contact.html" target="_blank">Contact Us</a>
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    </body>    
+    </html>

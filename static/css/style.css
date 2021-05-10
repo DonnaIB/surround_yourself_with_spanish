@@ -256,6 +256,7 @@ footer {
 .error {
     text-align: center;
     font-size: xx-large;
+    padding-top: 100px;
 }
 
 .warning {
@@ -277,6 +278,11 @@ footer {
         .search {
             text-align: center;;
         }
+    .main {
+        padding: 25px 10px;
+        min-height: 1200px;
+    }
+        
 
   }
 
