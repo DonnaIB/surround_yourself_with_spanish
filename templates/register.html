@@ -11,7 +11,7 @@
             <!-- username -->
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" class="validate form-control" id="username" name="username" pattern="^[a-zA-Z0-9]{3,15}$" required placeholder="Username" oninvalid="this.setCustomValidity('Usernnames should be between 3-15 characters')">
+                <input type="text" class="validate form-control" id="username" name="username" pattern="^[a-zA-Z0-9]{3,15}$" required placeholder="Username" oninvalid="this.setCustomValidity('Usernnames should be between 3-15 characters')" oninput="setCustomValidity('')">
                     
             </div>
 
@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label for="email">Email address</label>
                 <input type="email" class="validate form-control" id="email" name="email" required oninvalid="this.setCustomValidity('Please enter a valid email address')"
-                    placeholder="Enter email">
+                oninput="setCustomValidity('')" placeholder="Enter email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                     else.</small>
             </div>

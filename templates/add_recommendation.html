@@ -22,14 +22,14 @@
             <!-- name -->
             <div class="form-group">
                 <label for="rec_name">Name</label>
-                <input type="text" class="form-control" id="rec_name" name="rec_name" pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')" required>
+                <input type="text" class="form-control" id="rec_name" name="rec_name" pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')" oninput="setCustomValidity('')" required>
 
             </div>
 
             <!-- author / director -->
             <div class="form-group">
                 <label for="rec_by">Author / Director</label>
-                <input type="text" class="form-control" name="rec_by" id="rec_by" pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')" required>
+                <input type="text" class="form-control" name="rec_by" id="rec_by" pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')" oninput="setCustomValidity('')" required>
             </div>
 
             <!-- description -->
