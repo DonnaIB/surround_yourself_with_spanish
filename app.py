@@ -53,7 +53,7 @@ def search():
         "recommendations.html", recommendations=recommendations, user="")
 
 
-# filter recommendations
+# filter recommendations - Beginner
 @app.route("/get_beginner")
 def get_beginner():
     recommendations = list(mongo.db.recommendations.find({"level": "Beginner"}))
@@ -64,6 +64,7 @@ def get_beginner():
         recommendations=recommendations, user="")
 
 
+# filter recommendations - Intermediate
 @app.route("/get_intermediate")
 def get_intermediate():
     recommendations = list(mongo.db.recommendations.find(
@@ -75,6 +76,7 @@ def get_intermediate():
         recommendations=recommendations, user="")
 
 
+# filter recommendations - Upper Intermediate
 @app.route("/get_upperintermediate")
 def get_upperintermediate():
     recommendations = list(mongo.db.recommendations.find(
@@ -86,6 +88,7 @@ def get_upperintermediate():
         recommendations=recommendations, user="")
 
 
+# filter recommendations - Advanced
 @app.route("/get_advanced")
 def get_advanced():
     recommendations = list(mongo.db.recommendations.find(
@@ -97,6 +100,7 @@ def get_advanced():
         recommendations=recommendations, user="")
 
 
+# render about page
 @app.route("/about")
 def about():
     return render_template("about.html")
@@ -169,6 +173,7 @@ def login():
 # display user's recommendations on  profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    # check user is logged in
     if "user" in session:
         username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -180,6 +185,7 @@ def profile(username):
             username=username, 
             my_recommendations=my_recommendations)
 
+    # return 404 if user not logged in
     return render_template('404.html'), 404
 
 
@@ -195,6 +201,7 @@ def logout():
 # Lets a user add a new recommendation
 @app.route("/add_recommendation", methods=["GET", "POST"])
 def add_recommendation():
+    # check user is logged in
     if "user" in session:
         if request.method == "POST":
             selected_category = mongo.db.categories.find_one(
@@ -217,6 +224,8 @@ def add_recommendation():
         level = mongo.db.level.find()
         return render_template(
             "add_recommendation.html", categories=categories, level=level)
+    
+    # return 404 if user not logged in
     else:
         return render_template('404.html'), 404
 
@@ -224,6 +233,7 @@ def add_recommendation():
 # Lets a user edit a recommendation
 @app.route("/edit_recommendation/<recommendation_id>", methods=["GET", "POST"])
 def edit_recommendation(recommendation_id):
+    #  check user is logged in
     if "user" in session:
         if request.method == "POST":
             selected_category = mongo.db.categories.find_one(
@@ -249,6 +259,7 @@ def edit_recommendation(recommendation_id):
         return render_template(
             "edit_recommendation.html", recommendation=recommendation, 
             categories=categories, level=level)
+    # return 404 if user not logged in
     else:
         return render_template('404.html'), 404
 
@@ -271,23 +282,29 @@ def page_not_found(e):
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find())
+    # check if user is logged in
     if "user" in session:
         user = mongo.db.users.find_one(
            {"username": session["user"]})
+        # check is user is admin
         if user["is_admin"]:
             return render_template(
                 "categories.html", categories=categories)  
+        # return 404 if user not admin
         else:
             return render_template('404.html'), 404
+    # return 404 if user not logged in
     return render_template('404.html'), 404
 
 
 # Lets an admin add a category
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    # check user is logged in
     if "user" in session:
         user = mongo.db.users.find_one(
            {"username": session["user"]})
+        # check if user is admin
         if user["is_admin"]:
             existing_cat = mongo.db.categories.find_one(
                 {"category_name": request.form.get('category_name')})
@@ -307,9 +324,9 @@ def add_category():
                 return render_template(
                     "categories.html", categories=categories)
             return render_template("add_category.html")
-
+        # return 404 if user not admin
         return render_template('404.html'), 404
-        
+    # return 404 if user not logged in    
     else:
         return render_template('404.html'), 404
 
@@ -317,9 +334,11 @@ def add_category():
 # Let an admin edit a category
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
+     # check if user is logged in
     if "user" in session:
         user = mongo.db.users.find_one(
            {"username": session["user"]})
+         # check if user is admin
         if user["is_admin"]:
             if request.method == "POST":
 
@@ -336,6 +355,7 @@ def edit_category(category_id):
                 {"_id": ObjectId(category_id)})
             return render_template(
                 "edit_category.html", category=category)
+    # return 404 if user not logged in 
     else:
         return render_template('404.html'), 404
 
