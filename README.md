@@ -166,13 +166,13 @@ home page of the site.
 
 ### Tools, Libraries, 
 - Gitpod was used an the IDE for building the site.
-- **Bootstrap4** was used to assist with the structure, responsiveness and browser compatibility of the site. 
-- **Material Design** was used for the icons in the site.
-- **jQuery** to reference Javascript needed for the responsive navbar.
-- **Popper.js** reference Javascript needed for the responsive navbar.
-- **Balsamiq** - was used for creating my wireframes.
- - **favicon.io** - was used for creating favicon.
-- **Am I Responsive?** - was used for creating image at start of README.
+- [Bootstrap](https://getbootstrap.com/) was used to assist with the structure, responsiveness and browser compatibility of the site. 
+- [Material Design](https://fonts.google.com/icons) was used for the icons in the site.
+- [JQuery](https://jquery.com/) to reference Javascript needed for the responsive navbar.
+- [Popper JS](https://popper.js.org/) reference Javascript needed for the responsive navbar.
+- [Balsamiq](https://balsamiq.com/) was used for creating my wireframes.
+- [favicon.io](https://favicon.io/) was used for creating favicon.
+- [Am I Responsive?](http://ami.responsivedesign.is/) was used for creating image at start of README.
 
 ## Testing
 
@@ -180,11 +180,13 @@ I tested the site in the following ways:
 
 1. Initially I used the inspector tool to test the site in all the screen sizes and devices available in the Chrome developer tool.  In addition to this I also tested it on live devices, including but not limited to iPhone, iPad, MacBook Pro, MotoG7. 
 
-2. I also tested my code using the validator tools for both my HTML [W3C HTML Validator Tool](https://validator.w3.org/), CSS [W3C CSS Validator Tool](https://validator.w3.org/).
+2. I also viewed my site in multiple browsers including, Chrome, Firefox and Safari.
+
+3. I also tested my code using the validator tools for my HTML [W3C HTML Validator Tool](https://validator.w3.org/), CSS [W3C CSS Validator Tool](https://validator.w3.org/) and Python [PEP88 Online](http://pep8online.com/checkresult).
 
 Screen shots of the HTML & CSS validator results can be viewed by clicking on the link below, as you will see there were no errors detected.
 
-[HTML Validation Reports](static/readme_images/testing)
+[Validation Reports](static/readme_images/testing)
 
 
 3. All links were tested to ensure there were no broken links and that all links to external sites open in a new tab.
@@ -195,34 +197,43 @@ Screen shots of the HTML & CSS validator results can be viewed by clicking on th
 
 #### New Visitors
 1. As a new visitor to the website, I want to understand the purpose of the site and how to interact with it.
+
 The home page of the site features a title and an introduction with an explanation of the purpose of the site and how to interact with it.
 
 2. As a new visitor to the website, I want to find recommendations easily from fellow language learners without the need to register.
+
 There is no requirement to register to view recommendations. The recommendations are the main feature of the site and are visible from the home page for all visitors to view.
 
 3. As a new visitor to the website, I want to be able to register easily.
+
 The nagvigation is clear and has a item named 'Register', when a user clicks on this nav item they are brought to a simple form, with clearly lablled fields, placehold text and a clearly marked 'Register' button.
 
 #### Logged In Visitors
 
 1.   As a logged in visitor to the website, I want to be able to easily add a recommendation..
-When a user logs into the site there are now options available to them in the navigation bar. When a users click 'Add Recommendation' in the navigation bar, they are taken to the add_recommedations page. This page displays a form to the user to enable them to add a recommendation The user first selects a category from a dropdown list, then enter the details of their recommendation, and finally selected a level from the options in the dropdown and chose a rating from 1-5. The user then clicks submit and their recommendation is saved in MongoDB and visible in the site.
+
+ - When a user logs into the site there are now options available to them in the navigation bar. When a users click 'Add Recommendation' in the navigation bar, they are taken to the add_recommedations page. This page displays a form to the user to enable them to add a recommendation The user first selects a category from a dropdown list, then enter the details of their recommendation, and finally selected a level from the options in the dropdown and chose a rating from 1-5. The user then clicks submit and their recommendation is saved in MongoDB and visible in the site.
 
 2. As a logged in visitor to the website, I want to be able to easily edit my recommendations.
-When a user logs into the site there are taken to their recommendations, from there they can easily view, or select to edit or delete their recommendations. If they click on the pencil icon within a recommendation the are taken to a page that consists of a form that is prepopulated with the orginal recommendation data. The user can then then edit their recommendation and click the edit button to update the recommendation or there is the option to click cancel if they have changed their mind and no longer want to make any edits.
+
+ - When a user logs into the site there are taken to their recommendations, from there they can easily view, or select to edit or delete their recommendations. If they click on the pencil icon within a recommendation the are taken to a page that consists of a form that is prepopulated with the orginal recommendation data. The user can then then edit their recommendation and click the edit button to update the recommendation or there is the option to click cancel if they have changed their mind and no longer want to make any edits.
 
 3. As a logged in visitor to the website, I want to be able to easily delete my recommendations.
-When a user logs into the site there are taken to their recommendations, from there they can easily view, or select to edit or delete their recommendations. If they click on the bin icon within a recommendation a pop up modal appears asking the user to verify that they want to delete their recomendation. If the users click the delete button on the modal, their recommendation is delete from the database and no longer appears in the site.
+
+ - When a user logs into the site there are taken to their recommendations, from there they can easily view, or select to edit or delete their recommendations. If they click on the bin icon within a recommendation a pop up modal appears asking the user to verify that they want to delete their recomendation. If the users click the delete button on the modal, their recommendation is delete from the database and no longer appears in the site.
 
 4. As a logged in visitor to the website, I want to be given visual confirmation when I edit or delete my recommendataions that the update has been successful.
-When a user is logged in and and adds, edits or deletes a recommendation a message is flashed to confirm that the action has been carried out successfully.
+
+ - When a user is logged in and and adds, edits or deletes a recommendation a message is flashed to confirm that the action has been carried out successfully.
 
 #### Admin
 1. As an admin, I want to be able to edit or delete any recommendations to remove any inappropriate content.
-When an admin is logged in, the edit and delete icons are available to them on all recomentations allowing then to edit or delete any inappropriate recommendations.
+
+ - When an admin is logged in, the edit and delete icons are available to them on all recomentations allowing then to edit or delete any inappropriate recommendations.
 
 2. As an admin, I want to be able to easily add, edit or delete categories within in the site rather than having to access MongoDB.
-When an admin is logged in a new nav item is added called Categories. Clicking on this page allows an admin to view exisiting catgories, as well as edit or delete them. Additionally there is an add category button allowing then to add a new category on the front end.
+
+ - When an admin is logged in a new nav item is added called Categories. Clicking on this page allows an admin to view exisiting catgories, as well as edit or delete them. Additionally there is an add category button allowing then to add a new category on the front end.
 
 
 ### Functionality Test Cases
@@ -239,6 +250,16 @@ Home:
 2. While logged out ensure that you can only see 'Home', 'About', 'Log In', and 'Register' in the navigation bar.
 3. While logged in, make sure all recommendations still have the fields detailed in step 1 and that any recommendation that was created by you, now has the pencil and bin icon visible.
 4. While logged in as an admin, make sure all recommendations still have the fields detailed in step 1 and that all recommendations now have the pencil and bin icon visible.
+
+- Search funtionality
+1. Type a word into the search box that you know there isn't match for in the DB, ensure that the flash messaging saying that there are no matches to your search.
+2. Click the reset button and ensure all Reccomendations are visble again.
+3. Type the name of a book, or author that you know appears in your DB into the search box, ensure only recommendations that match that criteria are visible.
+
+- Filter functionality
+1. Click on the word filter above the recommendations and ensure the filter option buttons are visible.
+2. Click on each button in turn and ensure that only recommendations that match that filter are visble.
+3. Ensure there is one filter option that has no corresponding entries in the DB and then click on the option, ensure the flash messagin saying there are no matching recommendations.
 
 About: 
 1. While logged out ensure you can access this page and the text loads.
@@ -269,28 +290,61 @@ My Recommendations:
 1. While logged in, navigate to the My Recommendations page and ensure you can see all the recommendations that you have added.
 2. While on the My Recommendations page ensure that the pencil and bin icons are visible in your recommendations.
 3. While on the My Recommendations page click on the pencil icon and ensure that the Edit Recommendation page opens.
-5. While on the My Recommendations page click on the bin icon and ensure that a pop up verification modal appears.
-6. Copy URL for My Recommendations page, then log out, paste the URL into the browser and try to access the page while logged out. Ensure you get a 404 error page.
+4. While on the My Recommendations page click on the bin icon and ensure that a pop up verification modal appears.
+5. Copy URL for My Recommendations page, then log out, paste the URL into the browser and try to access the page while logged out. Ensure you get a 404 error page.
 
 Add Recommendation:
+1. While logged in, navigate to the Add Recommendations page and ensure the form loads and all fields are visible
+2. While on the Add Recommendations page ensure that all the categories are visible in the category drop down.
+3. While on the Add Recommendations page ensure that all the levels are visible in the level drop down.
+4. While on the Add Recommendations page try to submit the form with fields left blank, ensure that custom valitation message is shown. Do this with each field in turn.
+5. While on the Add Recommendations page try to submit the form with blank spaces entered into the fields and ensure validation messages are shown.
+6. While on the Add Recommendations page complete all fields and submit the form, ensure the new entry is saved in the DB and is visible in the recommendations page.
+7. Copy URL for Add Recommendations page, then log out, paste the URL into the browser and try to access the page while logged out. Ensure you get a 404 error page.
 
 
 Edit Recommendation:
-
+1. While logged in, navigate to the Edit Recommendations page and ensure the form loads and all fields are visible and pre populated with the data for that recommendation.
+2. While on the Edit Recommendations page ensure that all the categories are visible in the category drop down.
+3. While on the Edit Recommendations page ensure that all the levels are visible in the level drop down.
+4. While on the Edit Recommendations page try to submit the form with fields left blank, ensure that custom valitation message is shown. Do this with each field in turn.
+5. While on the Edit Recommendations page try to submit the form with blank spaces entered into the fields and ensure validation messages are shown.
+6. While on the Edit Recommendations page make an edit to the recommendation and click the edit button, ensure the new edited version is saved in the DB and the edited version is visible in the recommendations page.
+7. While on the Edit Recommendations page don't make any changes and click the cancel button, ensure you are taken back to the recommendation page.
+8. Copy URL for Edit Recommendations page, then log out, paste the URL into the browser and try to access the page while logged out. Ensure you get a 404 error page.
 
 Delete Recommendation:
+*Carry out the test below from both the Recommendations and My Recommendations page*
 
-Search:
+1. Click the delete icon within a recommendation, ensure that a delete verification modal appears.
+2. When the modal has appeared, click the cancel button and ensure the modal closes and the recommendation is still visible on the page.
+3. Click the delete icon again, this time click the delete button. Ensure the recommendetation is deleted and the confrimation flash message is visible.  Take care to ensure that the correct recommendation has been deleted i.e. the one in which you click the delete icon.
 
-Add Category (Admin Only):
+
+Category & Add Category Pages (Admin Only):
+1. While logged in and admin navigate to the Categories page and ensure all existing categories are visible with the option to edit or delete.
+2. While on the Categories page click on the Add Category button and ensure the form opens.
+3. While on the Add Categories page try to submit the form with fields left blank, ensure that custom valitation message is shown. Do this with each field in turn.
+4. While on the Add Categories page try to submit the form with fields left blank, ensure that custom valitation message is shown. Do this with each field in turn.
+5. While on the Add Categories page try to submit the form with blank spaces entered into the fields and ensure validation messages are shown.
+6. While on the Add Categories page complete all fields and submit the form, ensure the new entry is saved in the DB and is visible in the categories page.
+7. Copy URL for Add Categories page, then log out, paste the URL into the browser and try to access the page while logged out. Ensure you get a 404 error page.
 
 
 Edit Category (Admin Only):
+1. While logged in and admin navigate to the Categories page and click the edit icon on one of the categories and form loads and all fields are visible and pre populated with the data for that category.
+4. While on the Edit Categories page try to submit the form with fields left blank, ensure that custom valitation message is shown. Do this with both fields.
+5. While on the Edit Categories page try to submit the form with blank spaces entered into the fields and ensure validation messages are shown.
+6. While on the Edit Categories page make an edit to the recommendation and click the edit button, ensure the new edited version is saved in the DB and the edited version is visible in the categories page.
+7. While on the Edit Categories page don't make any changes and click the cancel button, ensure you are taken back to the categories page.
+8. Copy URL for Edit Categories page, then log out, paste the URL into the browser and try to access the page while logged out. Ensure you get a 404 error page.
 
 
 Delete Category (Admin Only):
 
-
+1. Click the delete icon within a category, ensure that a delete verification modal appears.
+2. When the modal has appeared, click the cancel button and ensure the modal closes and the category is still visible on the page.
+3. Click the delete icon again, this time click the delete button. Ensure the category is deleted and the confrimation flash message is visible.  Take care to ensure that the correct category has been deleted i.e. the one in which you click the delete icon.
 
 
 ### Accessibility
