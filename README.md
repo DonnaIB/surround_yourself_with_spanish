@@ -2,9 +2,9 @@
   <a href="">Surround Yourself with Spanish</a>
 </h1>
 
-![Surround Yourself with Spanish](static/readme_images/website_image.png)
+![Surround Yourself with Spanish](static/readme_images/website_image.png){:target="_blank"}
 
-[Surround Yourself with Spanish - Live site](http://surround-yourself-with-spanish.herokuapp.com/get_recommendations)
+[Surround Yourself with Spanish - Live site](http://surround-yourself-with-spanish.herokuapp.com/get_recommendations){:target="_blank"}
 
 
 *Note: This is an extension to the fictional organisation (Dublin Intercambio) created for my earlier Code Institute milestone projects.*
@@ -66,7 +66,7 @@ Admin
 2. As an admin, I want to be able to easily add, edit or delete categories within in the site rather than having to access MongoDB.
 
 ### Design: 
-With this site, I wanted to ensure the design is simple, modern, fully responsive and has a connection to the [Dublin Intercambio](https://donnaib.github.io/dublin_intercambio/) site from my Ms1 project, this connection will be achieved by utilising the same color palette and logo throughout. As before the inspiration for this colour palette was to harness the Spanish connection and influence of the project.
+With this site, I wanted to ensure the design is simple, modern, fully responsive and has a connection to the [Dublin Intercambio](https://donnaib.github.io/dublin_intercambio/){:target="_blank"} site from my Ms1 project, this connection will be achieved by utilising the same color palette and logo throughout. As before the inspiration for this colour palette was to harness the Spanish connection and influence of the project.
 
 As I have stated before I am aware that yellow can sometimes be a problematic colour, however it remains an important element of the design due the fact that it is a key colour of the Spansih flag. With this in mind special attention as always was given to testing the contract of the white text against the yellow backgrounds to ensure readability.
 
@@ -81,10 +81,10 @@ I used Balsamiq to create detailed Wireframes for mobile and desktop site, for t
 ### Wireframes
 
 #### Mobile View
-Mobile wireframes can be viewed here [Mobile wireframe](static/wireframes/mobile)
+Mobile wireframes can be viewed here [Mobile wireframe](static/wireframes/mobile){:target="_blank"}
 
 #### Larger Screen View
-Larger screen wireframes can be viewed here [Larger Screen wireframe](static/wireframes/desktop)
+Larger screen wireframes can be viewed here [Larger Screen wireframe](static/wireframes/desktop){:target="_blank"}
 
 As with my previous project I was very aware that working with yellow in the colour pallete can be problematic. However, as always I was careful to utilize the color in a way that added to the design of the site, but didn't not compromise the accessibility of the site.
 
@@ -166,13 +166,13 @@ home page of the site.
 
 ### Tools, Libraries, 
 - Gitpod was used an the IDE for building the site.
-- [Bootstrap](https://getbootstrap.com/) was used to assist with the structure, responsiveness and browser compatibility of the site. 
-- [Material Design](https://fonts.google.com/icons) was used for the icons in the site.
-- [JQuery](https://jquery.com/) to reference Javascript needed for the responsive navbar.
-- [Popper JS](https://popper.js.org/) reference Javascript needed for the responsive navbar.
-- [Balsamiq](https://balsamiq.com/) was used for creating my wireframes.
-- [favicon.io](https://favicon.io/) was used for creating favicon.
-- [Am I Responsive?](http://ami.responsivedesign.is/) was used for creating image at start of README.
+- [Bootstrap](https://getbootstrap.com/){:target="_blank"} was used to assist with the structure, responsiveness and browser compatibility of the site. 
+- [Material Design](https://fonts.google.com/icons){:target="_blank"} was used for the icons in the site.
+- [JQuery](https://jquery.com/){:target="_blank"} to reference Javascript needed for the responsive navbar.
+- [Popper JS](https://popper.js.org/){:target="_blank"} reference Javascript needed for the responsive navbar.
+- [Balsamiq](https://balsamiq.com/){:target="_blank"} was used for creating my wireframes.
+- [favicon.io](https://favicon.io/){:target="_blank"} was used for creating favicon.
+- [Am I Responsive?](http://ami.responsivedesign.is/{:target="_blank"}) was used for creating image at start of README.
 
 ## Testing
 
@@ -182,11 +182,11 @@ I tested the site in the following ways:
 
 2. I also viewed my site in multiple browsers including, Chrome, Firefox and Safari.
 
-3. I also tested my code using the validator tools for my HTML [W3C HTML Validator Tool](https://validator.w3.org/), CSS [W3C CSS Validator Tool](https://validator.w3.org/) and Python [PEP88 Online](http://pep8online.com/checkresult).
+3. I also tested my code using the validator tools for my HTML [W3C HTML Validator Tool](https://validator.w3.org/){:target="_blank"}, CSS [W3C CSS Validator Tool](https://validator.w3.org/){:target="_blank"} and Python [PEP88 Online](http://pep8online.com/checkresult){:target="_blank"}.
 
 Screen shots of the HTML & CSS validator results can be viewed by clicking on the link below, as you will see there were no errors detected.
 
-[Validation Reports](static/readme_images/testing)
+[Validation Reports](static/readme_images/testing){:target="_blank"}
 
 
 3. All links were tested to ensure there were no broken links and that all links to external sites open in a new tab.
@@ -348,10 +348,13 @@ Delete Category (Admin Only):
 
 
 ### Accessibility
-In addition to all the above testing I also checked my site with accessibility tools in the inspector. ![Accessibility Check Screenshot](xxxxxx)
+In addition to all the above testing I also checked my site with accessibility tools in the inspector. ![Accessibility Check Screenshot](static/readme_images/testing/accessibility_score.png)
 
 ### Bugs
+During the development of this site I encountered a number of different bugs that have been now been fixed. A few notable bugs include the following:
+1. During testing it was highlighted that a user could enter empty spaces and submit the forms. I search online and adapted my code based on information I found in this stack overflow page [Stack overflow](https://stackoverflow.com/questions/27384198/bootstrap-validator-regex-no-space)
 
+2. After initially creating user only and admin only pages, although the navigation to those pages weren't accessible, they could still be reached if the full URL waa pasted into the browswer.  I updated my code to check that the user was logged in and added a check to ensure the users had rights to edit or delete the recommendations or that the user was an admin and therefore had overall rights.
 
 
 ## Deployment UPDATE TO HEROKU
@@ -374,7 +377,7 @@ All user generated content is stored in MongoDB. There are 4 collections for thi
 
 ### How to run this project locally
 To clone this project from GitHub:
-1. Follow this link to the [Project GitHub repository](https://donnaib.github.io/surround_yourself_with_spanish).
+1. Follow this link to the [Project GitHub repository](https://donnaib.github.io/surround_yourself_with_spanish){:target="_blank"}.
 2. Under the repository name, click 'Code'
 
 !['Code button'](static/readme_images/code_button.jpg)
@@ -462,5 +465,5 @@ The content of the site was written by myself and inspired by my Ms1 and Ms2 fic
 
 
 ### Acknowledgements
-* My color scheme for this site was based on the colors in the Spanish flag and I used a colour scheme from [Scheme Color](https://www.schemecolor.com/spain-flag-colors.php), the specific color combination was created by user Keshav Naidu.
+* My color scheme for this site was based on the colors in the Spanish flag and I used a colour scheme from [Scheme Color](https://www.schemecolor.com/spain-flag-colors.php){:target="_blank"}, the specific color combination was created by user Keshav Naidu.
 * A final thank to my mentor Precious Ijege who has advised and guided me through this Milestone 3 project.
