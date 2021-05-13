@@ -48,7 +48,7 @@ def search():
     recommendations = list(
         mongo.db.recommendations.find({"$text": {"$search": query}}))
     if not recommendations:
-        flash('Sorry there are no recommendations that match your search')
+        flash('Sorry there are no recommendations that currently match')
     return render_template(
         "recommendations.html", recommendations=recommendations, user="")
 
@@ -56,9 +56,10 @@ def search():
 # filter recommendations - Beginner
 @app.route("/get_beginner")
 def get_beginner():
-    recommendations = list(mongo.db.recommendations.find({"level": "Beginner"}))
+    recommendations = list(mongo.db.recommendations.find(
+        {"level": "Beginner"}))
     if not recommendations:
-        flash('Sorry there are no recommendations that match your filter')
+        flash('Sorry there are no recommendations that currently match')
     return render_template(
         "recommendations.html",
         recommendations=recommendations, user="")
@@ -70,7 +71,7 @@ def get_intermediate():
     recommendations = list(mongo.db.recommendations.find(
         {"level": "Intermediate"}))
     if not recommendations:
-        flash('Sorry there are no recommendations that match your filter')
+        flash('Sorry there are no recommendations that currently match')
     return render_template(
         "recommendations.html",
         recommendations=recommendations, user="")
@@ -82,7 +83,7 @@ def get_upperintermediate():
     recommendations = list(mongo.db.recommendations.find(
         {"level": "Upper Intermediate"}))
     if not recommendations:
-        flash('Sorry there are no recommendations that match your filter')
+        flash('Sorry there are no recommendations that currently match')
     return render_template(
         "recommendations.html",
         recommendations=recommendations, user="")
@@ -94,7 +95,7 @@ def get_advanced():
     recommendations = list(mongo.db.recommendations.find(
         {"level": "Advanced"}))
     if not recommendations:
-        flash('Sorry there are no recommendations that match your search')
+        flash('Sorry there are no recommendations that currently match')
     return render_template(
         "recommendations.html",
         recommendations=recommendations, user="")
@@ -326,7 +327,7 @@ def add_category():
             return render_template("add_category.html")
         # return 404 if user not admin
         return render_template('404.html'), 404
-    # return 404 if user not logged in    
+    # return 404 if user not logged in  
     else:
         return render_template('404.html'), 404
 
@@ -334,11 +335,11 @@ def add_category():
 # Let an admin edit a category
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
-     # check if user is logged in
+    # check if user is logged in
     if "user" in session:
         user = mongo.db.users.find_one(
            {"username": session["user"]})
-         # check if user is admin
+        # check if user is admin
         if user["is_admin"]:
             if request.method == "POST":
 

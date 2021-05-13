@@ -6,7 +6,7 @@
     <h5 class="card-header text-center">Edit Category</h5>
     <div class="card-body">
         <h5 class="card-title">Please complete all the fields below</h5>
-        <form method="POST" action="{{ url_for('add_category') }}">
+        <form method="POST" action="{{ url_for('edit_category', category_id=category._id) }}">
 
             <!-- name -->
             <div class="form-group">
