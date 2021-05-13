@@ -11,13 +11,15 @@
             <!-- name -->
             <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control" id="category_name" name="category_name" value="{{ category.category_name }}" pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')" oninput="setCustomValidity('')" required>
+                <input type="text" class="form-control" id="category_name" name="category_name" value="{{ category.category_name }}" 
+                pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')" oninput="setCustomValidity('')" required>
             </div>
 
             <!-- icon -->
             <div class="form-group">
                 <label>Material Design Icon</label>
-                <input type="text" class="form-control" name="category_icon" value="{{ category.category_icon }}" id="category_icon" pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')"  oninput="setCustomValidity('')"required>
+                <input type="text" class="form-control" name="category_icon" value="{{ category.category_icon }}" id="category_icon" 
+                pattern=".*\S+.*" oninvalid="this.setCustomValidity('Please enter a valid name')"  oninput="setCustomValidity('')"required>
             </div>
 
             <!-- submit button -->

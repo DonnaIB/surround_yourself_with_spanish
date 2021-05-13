@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- My Recommendation Cards -->
 <h1 class="title">My Recommendations</h1>
 <div class="album py-5">
   <div class="container">
@@ -71,7 +71,7 @@
                 <a class="material-icons edit"
                   href="{{ url_for('edit_recommendation', recommendation_id=my_recommendation._id)}}">edit</a>
                 <a class="material-icons edit" data-toggle="modal" data-target="#exampleModal{{ loop.index }}">delete</a>
-                <!-- Modal -->
+                <!-- Delete Verification Modal -->
                 <div class="modal fade" id="exampleModal{{ loop.index }}" tabindex="-1" role="dialog"
                   aria-labelledby="exampleModalLabel{{ loop.index }}" aria-hidden="true">
                   <div class="modal-dialog" role="document">

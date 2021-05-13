@@ -463,5 +463,5 @@ The content of the site was written by myself and inspired by my Ms1 and Ms2 fic
 
 ### Acknowledgements
 * My color scheme for this site was based on the colors in the Spanish flag and I used a colour scheme from [Scheme Color](https://www.schemecolor.com/spain-flag-colors.php), the specific color combination was created by user Keshav Naidu.
-* I would like to thank igor_ci, Ed_B Lead & Eventyret_mentor in the Slack community for helping answering various questions and pointing me in the right direction during my Ms3 project.
+* I would like to thank igor_ci, Ed_B Lead & Eventyret_mentor in the Slack community for answering various questions and pointing me in the right direction during my Ms3 project.
 * A final thank to my mentor Precious Ijege who has advised and guided me through this Milestone 3 project.
