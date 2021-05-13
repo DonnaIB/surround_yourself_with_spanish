@@ -2,9 +2,9 @@
   <a href="">Surround Yourself with Spanish</a>
 </h1>
 
-![Surround Yourself with Spanish](static/readme_images/website_image.png){:target="_blank"}
+![Surround Yourself with Spanish](static/readme_images/website_image.png)
 
-[Surround Yourself with Spanish - Live site](http://surround-yourself-with-spanish.herokuapp.com/get_recommendations){:target="_blank"}
+[Surround Yourself with Spanish - Live site](http://surround-yourself-with-spanish.herokuapp.com/get_recommendations)
 
 
 *Note: This is an extension to the fictional organisation (Dublin Intercambio) created for my earlier Code Institute milestone projects.*
@@ -66,7 +66,7 @@ Admin
 2. As an admin, I want to be able to easily add, edit or delete categories within in the site rather than having to access MongoDB.
 
 ### Design: 
-With this site, I wanted to ensure the design is simple, modern, fully responsive and has a connection to the [Dublin Intercambio](https://donnaib.github.io/dublin_intercambio/){:target="_blank"} site from my Ms1 project, this connection will be achieved by utilising the same color palette and logo throughout. As before the inspiration for this colour palette was to harness the Spanish connection and influence of the project.
+With this site, I wanted to ensure the design is simple, modern, fully responsive and has a connection to the [Dublin Intercambio](https://donnaib.github.io/dublin_intercambio/)site from my Ms1 project, this connection will be achieved by utilising the same color palette and logo throughout. As before the inspiration for this colour palette was to harness the Spanish connection and influence of the project.
 
 As I have stated before I am aware that yellow can sometimes be a problematic colour, however it remains an important element of the design due the fact that it is a key colour of the Spansih flag. With this in mind special attention as always was given to testing the contract of the white text against the yellow backgrounds to ensure readability.
 
@@ -81,10 +81,10 @@ I used Balsamiq to create detailed Wireframes for mobile and desktop site, for t
 ### Wireframes
 
 #### Mobile View
-Mobile wireframes can be viewed here [Mobile wireframe](static/wireframes/mobile){:target="_blank"}
+Mobile wireframes can be viewed here [Mobile wireframe](static/wireframes/mobile)
 
 #### Larger Screen View
-Larger screen wireframes can be viewed here [Larger Screen wireframe](static/wireframes/desktop){:target="_blank"}
+Larger screen wireframes can be viewed here [Larger Screen wireframe](static/wireframes/desktop)
 
 As with my previous project I was very aware that working with yellow in the colour pallete can be problematic. However, as always I was careful to utilize the color in a way that added to the design of the site, but didn't not compromise the accessibility of the site.
 
@@ -147,12 +147,11 @@ Once submited this is added to the Categories collection in MondgoDB and is avai
 
 ### Site Features 
 Every page on this site also incorporates the following features:
-* A logo in the top left hand corner, that not only forms part of the branding and design of the site but also as is consistent with a user's expectations, clicking the logo will return the user to the 
-home page of the site.
+* A logo in the top left hand corner, that not only forms part of the branding and design of the site but also as is consistent with a user's expectations, clicking the logo will return the user to the home page of the site.
 * A responsive, collapsible navigation bar, allowing users to easily navigate the site on any device.
 
 ### Possible Features to Implement in Future
-* Option to filter recommendations based on category or level.
+* Option to add the option to  filter recommendations based on category as well  level.
 * Password verification on registration form.
 * Server side form validation.
 
@@ -165,14 +164,14 @@ home page of the site.
 
 
 ### Tools, Libraries, 
-- Gitpod was used an the IDE for building the site.
-- [Bootstrap](https://getbootstrap.com/){:target="_blank"} was used to assist with the structure, responsiveness and browser compatibility of the site. 
-- [Material Design](https://fonts.google.com/icons){:target="_blank"} was used for the icons in the site.
-- [JQuery](https://jquery.com/){:target="_blank"} to reference Javascript needed for the responsive navbar.
-- [Popper JS](https://popper.js.org/){:target="_blank"} reference Javascript needed for the responsive navbar.
-- [Balsamiq](https://balsamiq.com/){:target="_blank"} was used for creating my wireframes.
-- [favicon.io](https://favicon.io/){:target="_blank"} was used for creating favicon.
-- [Am I Responsive?](http://ami.responsivedesign.is/{:target="_blank"}) was used for creating image at start of README.
+- [Gitpod](https://gitpod.io/workspaces) was used an the IDE for building the site.
+- [Bootstrap](https://getbootstrap.com/) was used to assist with the structure, responsiveness and browser compatibility of the site. 
+- [Material Design](https://fonts.google.com/icons) was used for the icons in the site.
+- [JQuery](https://jquery.com/) to reference Javascript needed for the responsive navbar.
+- [Popper JS](https://popper.js.org/) reference Javascript needed for the responsive navbar.
+- [Balsamiq](https://balsamiq.com/) was used for creating my wireframes.
+- [favicon.io](https://favicon.io/) was used for creating favicon.
+- [Am I Responsive?](http://ami.responsivedesign.is/) was used for creating image at start of README.
 
 ## Testing
 
@@ -182,11 +181,11 @@ I tested the site in the following ways:
 
 2. I also viewed my site in multiple browsers including, Chrome, Firefox and Safari.
 
-3. I also tested my code using the validator tools for my HTML [W3C HTML Validator Tool](https://validator.w3.org/){:target="_blank"}, CSS [W3C CSS Validator Tool](https://validator.w3.org/){:target="_blank"} and Python [PEP88 Online](http://pep8online.com/checkresult){:target="_blank"}.
+3. I also tested my code using the validator tools for my HTML [W3C HTML Validator Tool](https://validator.w3.org/), CSS [W3C CSS Validator Tool](https://validator.w3.org/) and Python [PEP88 Online](http://pep8online.com/checkresult).
 
 Screen shots of the HTML & CSS validator results can be viewed by clicking on the link below, as you will see there were no errors detected.
 
-[Validation Reports](static/readme_images/testing){:target="_blank"}
+[Validation Reports](static/readme_images/testing)
 
 
 3. All links were tested to ensure there were no broken links and that all links to external sites open in a new tab.
@@ -198,15 +197,15 @@ Screen shots of the HTML & CSS validator results can be viewed by clicking on th
 #### New Visitors
 1. As a new visitor to the website, I want to understand the purpose of the site and how to interact with it.
 
-The home page of the site features a title and an introduction with an explanation of the purpose of the site and how to interact with it.
+ - The home page of the site features a title and an introduction with an explanation of the purpose of the site and how to interact with it.
 
 2. As a new visitor to the website, I want to find recommendations easily from fellow language learners without the need to register.
 
-There is no requirement to register to view recommendations. The recommendations are the main feature of the site and are visible from the home page for all visitors to view.
+ - There is no requirement to register to view recommendations. The recommendations are the main feature of the site and are visible from the home page for all visitors to view.
 
 3. As a new visitor to the website, I want to be able to register easily.
 
-The nagvigation is clear and has a item named 'Register', when a user clicks on this nav item they are brought to a simple form, with clearly lablled fields, placehold text and a clearly marked 'Register' button.
+ - The nagvigation is clear and has a item named 'Register', when a user clicks on this nav item they are brought to a simple form, with clearly lablled fields, placehold text and a clearly marked 'Register' button.
 
 #### Logged In Visitors
 
@@ -377,7 +376,7 @@ All user generated content is stored in MongoDB. There are 4 collections for thi
 
 ### How to run this project locally
 To clone this project from GitHub:
-1. Follow this link to the [Project GitHub repository](https://donnaib.github.io/surround_yourself_with_spanish){:target="_blank"}.
+1. Follow this link to the [Project GitHub repository](https://donnaib.github.io/surround_yourself_with_spanish).
 2. Under the repository name, click 'Code'
 
 !['Code button'](static/readme_images/code_button.jpg)
@@ -451,8 +450,6 @@ git clone https://github.com/DonnaIB/surround_yourself_with_spanish.git
 7. When the app build is complete, click 'Open App' button to open the app
 
 
-
-
 ## Credits
 
 ### Content
@@ -461,9 +458,10 @@ The content of the site was written by myself and inspired by my Ms1 and Ms2 fic
 ### Code
 - Code for my navigation was adapted from my Ms2 project which in turn was adapted and customised from a code snippet found in the Bootstrap documentation.
 - Code for my footer was adapted from my Ms2 project. 
-- Code for the contact form taken from my Ms2 project and adapted and enhanced for this project.
+- I adapted the code from [Bootstrap documentation examples](https://getbootstrap.com/docs/4.0/components/card/) Bootstrap documenation for the main structure of the my recommendations.
 
 
 ### Acknowledgements
-* My color scheme for this site was based on the colors in the Spanish flag and I used a colour scheme from [Scheme Color](https://www.schemecolor.com/spain-flag-colors.php){:target="_blank"}, the specific color combination was created by user Keshav Naidu.
+* My color scheme for this site was based on the colors in the Spanish flag and I used a colour scheme from [Scheme Color](https://www.schemecolor.com/spain-flag-colors.php), the specific color combination was created by user Keshav Naidu.
+* I would like to thank igor_ci, Ed_B Lead & Eventyret_mentor in the Slack community for helping answering various questions and pointing me in the right direction during my Ms3 project.
 * A final thank to my mentor Precious Ijege who has advised and guided me through this Milestone 3 project.
