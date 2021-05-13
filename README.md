@@ -181,7 +181,7 @@ I tested the site in the following ways:
 
 2. I also viewed my site in multiple browsers including, Chrome, Firefox and Safari.
 
-3. I also tested my code using the validator tools for my HTML [W3C HTML Validator Tool](https://validator.w3.org/), CSS [W3C CSS Validator Tool](https://validator.w3.org/) and Python [PEP88 Online](http://pep8online.com/checkresult).
+3. I also tested my code using the validator tools for my HTML [W3C HTML Validator Tool](https://validator.w3.org/), CSS [W3C CSS Validator Tool](https://validator.w3.org/) and Python [PEP88 Online](http://pep8online.com/).
 
 Screen shots of the HTML & CSS validator results can be viewed by clicking on the link below, as you will see there were no errors detected.
 
@@ -250,12 +250,12 @@ Home:
 3. While logged in, make sure all recommendations still have the fields detailed in step 1 and that any recommendation that was created by you, now has the pencil and bin icon visible.
 4. While logged in as an admin, make sure all recommendations still have the fields detailed in step 1 and that all recommendations now have the pencil and bin icon visible.
 
-- Search funtionality
+Home: Search funtionality
 1. Type a word into the search box that you know there isn't match for in the DB, ensure that the flash messaging saying that there are no matches to your search.
 2. Click the reset button and ensure all Reccomendations are visble again.
 3. Type the name of a book, or author that you know appears in your DB into the search box, ensure only recommendations that match that criteria are visible.
 
-- Filter functionality
+Home: Filter functionality
 1. Click on the word filter above the recommendations and ensure the filter option buttons are visible.
 2. Click on each button in turn and ensure that only recommendations that match that filter are visble.
 3. Ensure there is one filter option that has no corresponding entries in the DB and then click on the option, ensure the flash messagin saying there are no matching recommendations.
@@ -376,7 +376,7 @@ All user generated content is stored in MongoDB. There are 4 collections for thi
 
 ### How to run this project locally
 To clone this project from GitHub:
-1. Follow this link to the [Project GitHub repository](https://donnaib.github.io/surround_yourself_with_spanish).
+1. Follow this link to the [Project GitHub repository](https://github.com/DonnaIB/surround_yourself_with_spanish).
 2. Under the repository name, click 'Code'
 
 !['Code button'](static/readme_images/code_button.jpg)
