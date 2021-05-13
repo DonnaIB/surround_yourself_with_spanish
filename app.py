@@ -29,16 +29,16 @@ def get_recommendations():
         user = mongo.db.users.find_one(
            {"username": session["user"]})
         return render_template(
-           "recommendations.html", 
-           recommendations=recommendations, 
-           categories=categories, 
-           levels=levels, user=user)  
+           "recommendations.html",
+           recommendations=recommendations,
+           categories=categories,
+           levels=levels, user=user)
     else:
         return render_template(
-           "recommendations.html", 
-           recommendations=recommendations, 
-           categories=categories, 
-           levels=levels, user="")  
+           "recommendations.html",
+           recommendations=recommendations,
+           categories=categories,
+           levels=levels, user="")
 
 
 # search database
@@ -117,7 +117,7 @@ def register():
 
         if existing_user:
             flash("Username already exist. Please chose another username")
-            return redirect(url_for("register"))    
+            return redirect(url_for("register"))
 
             # check if email already exists in db
         existing_email = mongo.db.users.find_one(
@@ -150,19 +150,16 @@ def login():
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-    
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                return redirect(url_for("profile", username=session["user"]))            
-                
+                return redirect(url_for("profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
-    
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
@@ -177,13 +174,13 @@ def profile(username):
     # check user is logged in
     if "user" in session:
         username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+            {"username": session["user"]})["username"]
         my_recommendations = list(mongo.db.recommendations.find(
             {"created_by": session["user"]}).sort("_id", -1))
 
         return render_template(
-            "profile.html", 
-            username=username, 
+            "profile.html",
+            username=username,
             my_recommendations=my_recommendations)
 
     # return 404 if user not logged in
@@ -225,7 +222,6 @@ def add_recommendation():
         level = mongo.db.level.find()
         return render_template(
             "add_recommendation.html", categories=categories, level=level)
-    
     # return 404 if user not logged in
     else:
         return render_template('404.html'), 404
@@ -258,7 +254,7 @@ def edit_recommendation(recommendation_id):
         categories = mongo.db.categories.find().sort("category_name", 1)
         level = mongo.db.level.find()
         return render_template(
-            "edit_recommendation.html", recommendation=recommendation, 
+            "edit_recommendation.html", recommendation=recommendation,
             categories=categories, level=level)
     # return 404 if user not logged in
     else:
@@ -290,7 +286,7 @@ def get_categories():
         # check is user is admin
         if user["is_admin"]:
             return render_template(
-                "categories.html", categories=categories)  
+                "categories.html", categories=categories)
         # return 404 if user not admin
         else:
             return render_template('404.html'), 404
@@ -327,7 +323,7 @@ def add_category():
             return render_template("add_category.html")
         # return 404 if user not admin
         return render_template('404.html'), 404
-    # return 404 if user not logged in  
+    # return 404 if user not logged in
     else:
         return render_template('404.html'), 404
 
@@ -351,12 +347,11 @@ def edit_category(category_id):
                 mongo.db.categories.update(
                     {"_id": ObjectId(category_id)}, submit)
                 flash("Your category has been updated!")
-                
             category = mongo.db.categories.find_one(
                 {"_id": ObjectId(category_id)})
             return render_template(
                 "edit_category.html", category=category)
-    # return 404 if user not logged in 
+    # return 404 if user not logged in
     else:
         return render_template('404.html'), 404
 
