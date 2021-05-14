@@ -179,11 +179,11 @@ I tested the site in the following ways:
 
 1. Initially I used the inspector tool to test the site in all the screen sizes and devices available in the Chrome developer tool.  In addition to this I also tested it on live devices, including but not limited to iPhone, iPad, MacBook Pro, MotoG7. 
 
-2. I also viewed my site in multiple browsers including, Chrome, Firefox and Safari.
+2. I also viewed my site in multiple browsers including, Chrome, Firefox and Safari in terms of design, responsiveness and functionality.
 
 3. I also tested my code using the validator tools for my HTML [W3C HTML Validator Tool](https://validator.w3.org/), CSS [W3C CSS Validator Tool](https://validator.w3.org/) and Python [PEP88 Online](http://pep8online.com/).
 
-Screen shots of the HTML & CSS validator results can be viewed by clicking on the link below, as you will see there were no errors detected.
+Screen shots of the HTML,CSS and PEP8 validator results can be viewed by clicking on the link below, as you will see there were no errors detected.
 
 [Validation Reports](static/readme_images/testing)
 
@@ -313,7 +313,7 @@ Edit Recommendation:
 8. Copy URL for Edit Recommendations page, then log out, paste the URL into the browser and try to access the page while logged out. Ensure you get a 404 error page.
 
 Delete Recommendation:
-*Carry out the test below from both the Recommendations and My Recommendations page*
+*Carry out the tests below from both the Recommendations and My Recommendations page*
 
 1. Click the delete icon within a recommendation, ensure that a delete verification modal appears.
 2. When the modal has appeared, click the cancel button and ensure the modal closes and the recommendation is still visible on the page.
@@ -464,4 +464,5 @@ The content of the site was written by myself and inspired by my Ms1 and Ms2 fic
 ### Acknowledgements
 * My color scheme for this site was based on the colors in the Spanish flag and I used a colour scheme from [Scheme Color](https://www.schemecolor.com/spain-flag-colors.php), the specific color combination was created by user Keshav Naidu.
 * I would like to thank igor_ci, Ed_B Lead & Eventyret_mentor in the Slack community for answering various questions and pointing me in the right direction during my Ms3 project.
+* I would also like to that the team at Tutor support, who helped me solve some issues I encountered due to the recent Gitpod upgrade as well helping be solve an issue I was having when creating a check for an admin user.
 * A final thank to my mentor Precious Ijege who has advised and guided me through this Milestone 3 project.
